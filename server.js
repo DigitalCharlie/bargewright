@@ -6,8 +6,7 @@ const express = require('express');
 const morgan = require('morgan');
 const methodOverride = require('method-override');
 const path = require('path');
-
-// const fruitController = require('./controllers/fruit')
+const userController = require('./controllers/users')
 
 /////////////////////////////////////////////////
 // Create our Express Application Object Bind Liquid Templating Engine
@@ -33,7 +32,7 @@ app.get("/", (req,res) => {
     res.send("Welcome to The Bargewright Inn")
 });
 
-//app.use('/user', userController); // tells user route to use user controller
+app.use('/users/', userController); // tells user route to use user controller
 
 
 
