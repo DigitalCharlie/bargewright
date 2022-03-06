@@ -35,8 +35,15 @@ router.get('/new', (req,res) => {
 // CREATE
 
 router.post('/', async (req,res) => {
+    // validation
     const { error } = registerValid(req.body)
     if (error) return res.status(400).send(error.details[0].message)
+
+    // does user already exist?
+    const alreadyRegistered = User.findOne({email:req.body.email})
+    if (alreadyRegistered) return res.status(400).send('Email already registered')
+
+    // create user
     await User.create(req.body)
         .then((createdUser) => {
             console.log(createdUser)
