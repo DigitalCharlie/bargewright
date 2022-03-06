@@ -11,9 +11,20 @@ const { Schema, model } = mongoose;
 
 // make user schema
 const userSchema = new Schema({
-  name: String,
-  color: String,
-  readyToEat: Boolean,
+    name: {
+        type: String,
+        required: true,
+        max: 30
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    password: {
+        type: String,
+        required: true,
+        min: 8
+    },
 });
 
 // make user model

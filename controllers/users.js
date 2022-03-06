@@ -2,8 +2,9 @@
 // Import Dependencies
 ////////////////////////////////////////
 
-const express = require('express')
-// const Fruit = require('../models/fruit')
+const express = require('express');
+const { create } = require('../models/users');
+const User = require('../models/users')
 
 /////////////////////////////////////////
 // Create Router
@@ -23,14 +24,25 @@ router.get('/', (req,res) => {
 
 // NEW
 
+router.get('/new', (req,res) => {
+    res.render('users/New')
+})
+
 // DELETE
 
 // UPDATE
 
 // CREATE
 
-router.post('/new', (req,res) => {
-    res.send('Register')
+router.post('/', (req,res) => {
+    User.create(req.body)
+        .then((createdUser) => {
+            console.log(createdUser)
+            res.redirect(`/`)
+        })
+        .catch((err) => {
+            res.status(400).json(err)
+        })
 })
 
 // EDIT
