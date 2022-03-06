@@ -3,8 +3,8 @@
 ////////////////////////////////////////
 
 const express = require('express');
-const { create } = require('../models/users');
 const User = require('../models/users')
+const {registerValid, loginValid} = require('../models/validation')
 
 /////////////////////////////////////////
 // Create Router
@@ -34,8 +34,10 @@ router.get('/new', (req,res) => {
 
 // CREATE
 
-router.post('/', (req,res) => {
-    User.create(req.body)
+router.post('/', async (req,res) => {
+    const { error } = registerValid(req.body)
+    if (error) return res.status(400).send(error.details[0].message)
+    await User.create(req.body)
         .then((createdUser) => {
             console.log(createdUser)
             res.redirect(`/`)
