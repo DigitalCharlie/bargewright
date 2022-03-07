@@ -54,15 +54,36 @@ router.post('/', async (req,res) => {
         email: req.body.email,
         password: hashedPw
     })
-    
+
     User.create(newUser)
         .then((createdUser) => {
-            console.log(createdUser)
             res.redirect(`/`)
         })
         .catch((err) => {
             res.status(400).json(err)
         })
+})
+
+// LOGIN
+
+router.get('/login', (req,res) => {
+    res.render('users/Login')
+})
+
+router.post ('/login', async (req,res) => {
+    // validate input
+    const { error } = loginValid(req.body)
+    if (error) return res.status(400).send(error.details[0].message)
+
+    // is it a valid user?
+    const user = await User.findOne({email:req.body.email})
+    if (!user) return res.status(400).send('Username or password are not valid')
+
+    // is the password correct?
+    const validPassword = await bcrypt.compareSync(req.body.password, user.password)
+    if (!validPassword) return res.status(400).send('Username or password are not valid')
+
+    res.send('Login successful')
 })
 
 // EDIT
