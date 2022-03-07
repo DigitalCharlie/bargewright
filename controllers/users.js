@@ -91,8 +91,7 @@ router.post ('/login', async (req,res) => {
 
     // create jwt
     const token = jwt.sign({_id:user._id}, process.env.JWT_SECRET)
-    res.header('auth-token', token)
-    res.redirect(`/users/private`)
+    res.set('auth-token', token).send(token)
 })
 
 // EDIT
