@@ -4,9 +4,10 @@
 
 const express = require('express');
 const User = require('../models/users')
-const {registerValid, loginValid} = require('../models/validation')
+const { registerValid, loginValid } = require('../auth/validation')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+const auth = require('../auth/verify')
 
 /////////////////////////////////////////
 // Create Router
@@ -22,6 +23,10 @@ const router = express.Router();
 
 router.get('/', (req,res) => {
     res.send('Testing')
+})
+
+router.get('/private', auth, (req,res) => {
+    res.send('private area')
 })
 
 // NEW
@@ -86,7 +91,8 @@ router.post ('/login', async (req,res) => {
 
     // create jwt
     const token = jwt.sign({_id:user._id}, process.env.JWT_SECRET)
-    res.header('auth-token', token).send(token)
+    res.header('auth-token', token)
+    res.redirect(`/users/private`)
 })
 
 // EDIT
