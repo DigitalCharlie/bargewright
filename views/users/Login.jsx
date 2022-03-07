@@ -9,7 +9,7 @@ class New extends React.Component {
                     <fieldset>
                     <legend>Login</legend>
                     <label>
-                        EMAIL:<input type="text" name="email" placeholder="enter email" />
+                        USERNAME:<input type="text" name="username" placeholder="enter email" />
                     </label>
                     <label>
                         PASSWORD:<input type="text" name="password" placeholder="create password" />

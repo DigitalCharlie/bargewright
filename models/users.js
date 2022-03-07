@@ -11,7 +11,7 @@ const { Schema, model } = mongoose;
 
 // make user schema
 const userSchema = new Schema({
-    name: {
+    username: {
         type: String,
         required: true,
         max: 30

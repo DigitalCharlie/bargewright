@@ -3,7 +3,7 @@ const Joi = require('joi')
 const registerValid = (data) => {
 
     const schema = Joi.object({
-        name: Joi.string().required(),
+        username: Joi.string().required(),
         email: Joi.string().required().email(),
         password: Joi.string().min(8).required()
     })
@@ -14,7 +14,7 @@ const registerValid = (data) => {
 const loginValid = (data) => {
 
     const schema = Joi.object({
-        email: Joi.string().required().email(),
+        username: Joi.string().required(),
         password: Joi.string().min(8).required()
     })
 

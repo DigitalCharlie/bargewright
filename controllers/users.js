@@ -6,6 +6,7 @@ const express = require('express');
 const User = require('../models/users')
 const {registerValid, loginValid} = require('../models/validation')
 const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 
 /////////////////////////////////////////
 // Create Router
@@ -41,8 +42,8 @@ router.post('/', async (req,res) => {
     if (error) return res.status(400).send(error.details[0].message)
 
     // does user already exist?
-    const alreadyRegistered = await User.findOne({email:req.body.email})
-    if (alreadyRegistered) return res.status(400).send('Email already registered')
+    const alreadyRegistered = await User.findOne({username:req.body.username})
+    if (alreadyRegistered) return res.status(400).send('Username is taken')
 
     // Hash the password
     const salt = await bcrypt.genSaltSync(10)
@@ -50,7 +51,7 @@ router.post('/', async (req,res) => {
 
     // create user
     const newUser = ({
-        name:req.body.name,
+        username:req.body.username,
         email: req.body.email,
         password: hashedPw
     })
@@ -76,14 +77,16 @@ router.post ('/login', async (req,res) => {
     if (error) return res.status(400).send(error.details[0].message)
 
     // is it a valid user?
-    const user = await User.findOne({email:req.body.email})
+    const user = await User.findOne({username:req.body.username})
     if (!user) return res.status(400).send('Username or password are not valid')
 
     // is the password correct?
     const validPassword = await bcrypt.compareSync(req.body.password, user.password)
     if (!validPassword) return res.status(400).send('Username or password are not valid')
 
-    res.send('Login successful')
+    // create jwt
+    const token = jwt.sign({_id:user._id}, process.env.JWT_SECRET)
+    res.header('auth-token', token).send(token)
 })
 
 // EDIT
