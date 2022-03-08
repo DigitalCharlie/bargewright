@@ -26,7 +26,7 @@ router.get('/', (req,res) => {
 })
 
 router.get('/private', auth, (req,res) => {
-    res.send('private area')
+    res.send('Welcome to the private area')
 })
 
 // NEW
@@ -91,7 +91,7 @@ router.post ('/login', async (req,res) => {
 
     // create jwt
     const token = jwt.sign({_id:user._id}, process.env.JWT_SECRET)
-    res.set('auth-token', token).send(token)
+    res.cookie('auth-token',token).redirect('/users/private')
 })
 
 // EDIT
