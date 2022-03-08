@@ -7,7 +7,7 @@ const User = require('../models/users')
 const { registerValid, loginValid } = require('../auth/validation')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const auth = require('../auth/verify')
+const verify = require('../auth/verify')
 
 /////////////////////////////////////////
 // Create Router
@@ -25,7 +25,7 @@ router.get('/', (req,res) => {
     res.send('Testing')
 })
 
-router.get('/private', auth, (req,res) => {
+router.get('/private', verify, (req,res) => {
     res.send('Welcome to the private area, ')
 })
 
@@ -90,16 +90,22 @@ router.post ('/login', async (req,res) => {
     if (!validPassword) return res.status(400).send('Username or password are not valid')
 
     // create jwt
-    const token = jwt.sign({_id:user._id, username:user.username}, process.env.JWT_SECRET)
-    res.cookie('auth-token',token).redirect(`/users/${req.body.username}`)
+    // this is what I have questions about rn — res.cookie vs res.locals
+    const token = jwt.sign({_id:user._id, username:user.username}, process.env.JWT_SECRET, { expiresIn: '1h' })
+    res.cookie('auth-token',token)
+    res.cookie('username',req.body.username).redirect(`/users/${req.cookies.username}`)
 })
 
 // EDIT
 
 // SHOW
 
-router.get('/users/:username', auth, (req,res) => {
-    res.send('Welcome to your page, ' + req.params.username)
+router.get('/users/:username', verify, (req,res) => {
+    if (res.locals.user === req.params.username) {
+        res.send('Welcome to your page, ' + res.locals.user)
+    } else {
+        res.send(`You can't access this page.`)
+    }
 })
 
 
