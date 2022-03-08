@@ -26,7 +26,7 @@ router.get('/', (req,res) => {
 })
 
 router.get('/private', auth, (req,res) => {
-    res.send('Welcome to the private area')
+    res.send('Welcome to the private area, ')
 })
 
 // NEW
@@ -90,15 +90,17 @@ router.post ('/login', async (req,res) => {
     if (!validPassword) return res.status(400).send('Username or password are not valid')
 
     // create jwt
-    const token = jwt.sign({_id:user._id}, process.env.JWT_SECRET)
-    res.cookie('auth-token',token).redirect('/users/private')
+    const token = jwt.sign({_id:user._id, username:user.username}, process.env.JWT_SECRET)
+    res.cookie('auth-token',token).redirect(`/users/${req.body.username}`)
 })
 
 // EDIT
 
 // SHOW
 
-
+router.get('/users/:username', auth, (req,res) => {
+    res.send('Welcome to your page, ' + req.params.username)
+})
 
 
 

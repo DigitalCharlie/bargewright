@@ -10,27 +10,28 @@ const mongoose = require("./connection");
 const { Schema, model } = mongoose;
 
 // make user schema
-const userSchema = new Schema({
-    username: {
+const charSchema = new Schema({
+    name: {
         type: String,
         required: true,
-        max: 30
+        max: 64
     },
-    email: {
+    class: {
         type: String,
         required: true
     },
-    password: {
+    race: {
         type: String,
         required: true,
     },
-    characters: Array,
+    level: 1,
+    adventures: Array
 });
 
 // make user model
-const User = model("User", userSchema);
+const Character = model("Char", charSchema);
 
 ///////////////////////////////////////////////////
 // Export Model
 ///////////////////////////////////////////////////
-module.exports = User
+module.exports = Character

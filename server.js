@@ -33,7 +33,7 @@ app.get("/", (req,res) => {
     res.send("Welcome to The Bargewright Inn")
 });
 
-app.use('/users/', userController); // tells user route to use user controller
+app.use('/', userController); // tells user route to use user controller
 
 
 

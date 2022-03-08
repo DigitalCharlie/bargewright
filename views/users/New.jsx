@@ -5,7 +5,7 @@ class New extends React.Component {
     render() {
         return (
             <div>
-                <form action="/users" method="post">
+                <form action="/" method="post">
                     <fieldset>
                     <legend>Create a New User</legend>
                     <label>
