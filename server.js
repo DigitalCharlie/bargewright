@@ -5,8 +5,8 @@ require('dotenv').config(); // Loads Env vars into process.env
 const express = require('express'); 
 const morgan = require('morgan');
 const methodOverride = require('method-override');
-const path = require('path');
-const userController = require('./controllers/users')
+const login = require('./controllers/login')
+const users = require('./controllers/users')
 const cookieParser = require('cookie-parser')
 
 /////////////////////////////////////////////////
@@ -24,6 +24,8 @@ app.use(express.urlencoded({extended:true}));  // parse urlencoded request bodie
 app.use(methodOverride("_method")); // override for put and delete requests from forms
 app.use(express.static("public")); // serve files from public statically
 app.use(cookieParser());
+const verify = require('./auth/verify')
+const authorize = require('./auth/authorize')
 
 /////////////////////////////////////////////////////
 // Routing
@@ -33,7 +35,8 @@ app.get("/", (req,res) => {
     res.send("Welcome to The Bargewright Inn")
 });
 
-app.use('/', userController); // tells user route to use user controller
+app.use('/', login); // tells user route to use user controller
+app.use('/users/:username', verify, authorize, users); // tells user route to use user controller
 
 
 
