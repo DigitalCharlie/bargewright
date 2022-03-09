@@ -8,6 +8,7 @@ const { registerValid, loginValid } = require('../auth/validation')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const verify = require('../auth/verify')
+const authorize = require('../auth/authorize')
 
 /////////////////////////////////////////
 // Create Router
@@ -92,20 +93,16 @@ router.post ('/login', async (req,res) => {
     // create jwt
     // this is what I have questions about rn — res.cookie vs res.locals
     const token = jwt.sign({_id:user._id, username:user.username}, process.env.JWT_SECRET, { expiresIn: '1h' })
-    res.cookie('auth-token',token)
-    res.cookie('username',req.body.username).redirect(`/users/${req.cookies.username}`)
+    res.cookie('auth-token',token, {secure: true, httpOnly: true})
+        .redirect(`/users/${req.body.username}`)
 })
 
 // EDIT
 
 // SHOW
 
-router.get('/users/:username', verify, (req,res) => {
-    if (res.locals.user === req.params.username) {
-        res.send('Welcome to your page, ' + res.locals.user)
-    } else {
-        res.send(`You can't access this page.`)
-    }
+router.get('/users/:username', verify, authorize, (req,res) => {
+    res.send('Welcome to your page, ' + res.locals.user)
 })
 
 
