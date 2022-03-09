@@ -24,7 +24,7 @@ const charSchema = new Schema({
         type: String,
         required: true,
     },
-    level: 1,
+    level: Number,
     player: String,
     adventures: Array
 });

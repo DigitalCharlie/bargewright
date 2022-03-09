@@ -3,13 +3,7 @@
 ////////////////////////////////////////
 
 const express = require('express');
-const User = require('../models/users')
-const { registerValid, loginValid } = require('../auth/validation')
-const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
-const verify = require('../auth/verify')
-const authorize = require('../auth/authorize');
-const { route } = require('./login');
+const Character = require('../models/characters')
 
 /////////////////////////////////////////
 // Create Router
@@ -28,9 +22,25 @@ router.get('/', (req,res) => {
     res.send('Welcome to your page, ' + res.cookie.user + `. <a href="/logout">click here to log out.</a>`)
 })
 
+// NEW
 
-router.get('/:num', (req,res) => {
-    res.send(`${req.params.num}`)
+router.get('/new', (req,res) => {
+    res.render('characters/New')
+})
+
+
+
+// CREATE
+
+router.post('/', async (req,res) => {
+    req.body.player = res.cookie.user;
+    Character.create(req.body)
+    .then((createdCharacter) => {
+        res.send(`You have created ${createdCharacter}`)
+    })
+    .catch ((err) => {
+        res.status(400).json(err)
+    })
 })
 
 

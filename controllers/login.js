@@ -7,8 +7,6 @@ const User = require('../models/users')
 const { registerValid, loginValid } = require('../auth/validation')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const verify = require('../auth/verify')
-const authorize = require('../auth/authorize')
 
 /////////////////////////////////////////
 // Create Router
@@ -24,10 +22,6 @@ const router = express.Router();
 
 router.get('/', (req,res) => {
     res.send('Testing')
-})
-
-router.get('/private', verify, (req,res) => {
-    res.send('Welcome to the private area, ' + res.cookie.user)
 })
 
 // NEW
@@ -64,7 +58,7 @@ router.post('/', async (req,res) => {
 
     User.create(newUser)
         .then((createdUser) => {
-            res.redirect(`/`)
+            res.redirect(`/login`)
         })
         .catch((err) => {
             res.status(400).json(err)
