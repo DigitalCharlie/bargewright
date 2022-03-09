@@ -77,7 +77,7 @@ router.get('/login', (req,res) => {
     res.render('users/Login')
 })
 
-router.post ('/login', async (req,res) => {
+router.post('/login', async (req,res) => {
     // validate input
     const { error } = loginValid(req.body)
     if (error) return res.status(400).send(error.details[0].message)
@@ -93,8 +93,16 @@ router.post ('/login', async (req,res) => {
     // create jwt
     // this is what I have questions about rn — res.cookie vs res.locals
     const token = jwt.sign({_id:user._id, username:user.username}, process.env.JWT_SECRET, { expiresIn: '1h' })
-    res.cookie('auth-token',token, {secure: true, httpOnly: true})
+    res.cookie('auth-token', token, { httpOnly: true, maxAge:60*60*1000 })
         .redirect(`/users/${req.body.username}`)
+})
+
+// LOGOUT
+
+router.get('/logout', (req,res) => {
+    res.clearCookie('auth-token')
+    res.clearCookie('user')
+    res.redirect('/login')
 })
 
 // EDIT
@@ -102,7 +110,7 @@ router.post ('/login', async (req,res) => {
 // SHOW
 
 router.get('/users/:username', verify, authorize, (req,res) => {
-    res.send('Welcome to your page, ' + res.locals.user)
+    res.send('Welcome to your page, ' + res.cookie.user + `. <a href="/logout">click here to log out.</a>`)
 })
 
 
