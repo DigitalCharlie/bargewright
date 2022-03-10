@@ -4,6 +4,7 @@ const React = require('react')
 class New extends React.Component {
     render() {
         const { user, character } = this.props
+        console.log(this.props.character)
         return (
             <div>
                 <form action={`/users/${user}/characters/${character}`} method="post">

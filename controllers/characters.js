@@ -18,14 +18,17 @@ const router = express.Router();
 
 // INDEX
 
-router.get('/', (req,res) => {
-    res.send('test')
+router.get('/:character', (req,res) => {
+    Character.findById(req.params.character)
+        .then((foundChar) => {
+            res.send(`This is a test of ${foundChar.name}'s page`)
+        })
 })
 
 // NEW
 
-router.get('/new', (req,res) => {
-    res.render('adventures/New', {user:res.cookie.user})
+router.get('/:character/new', (req,res) => {
+    res.render('adventures/New', {character: req.params.character,user:res.cookie.user})
 })
 
 

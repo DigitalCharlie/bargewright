@@ -37,8 +37,8 @@ app.get("/", (req,res) => {
 });
 
 app.use('/', login); // tells user route to use user controller
-app.use('/users/:username', verify, authorize, users); // tells user route to use user controller
-app.use('/users/:username/characters/:character', verify, authorize, characters); // tells user route to use user controller
+app.use('/users/:username/', verify, authorize, users); // tells user route to use user controller
+app.use('/users/:username/characters/', verify, authorize, characters); // tells user route to use user controller
 
 
 

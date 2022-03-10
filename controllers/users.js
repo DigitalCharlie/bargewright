@@ -31,7 +31,7 @@ const router = express.Router();
 router.get('/', (req,res) => {
     Character.find({ player: res.cookie.user })
         .then ((characters) => {
-            res.render('users/Index', {characters, user:res.cookie.username})
+            res.render('users/Index', {characters, user:res.cookie.user})
         })
         .catch((error) => {
             console.log(error);
@@ -56,19 +56,14 @@ router.post('/', (req,res) => {
     // Create new character
     Character.create(req.body)
 
-    // Show created character if successful
     .then((createdCharacter) => {
-        // User.findByIdAndUpdate({
-        //     username:res.cookie.user
-        // },
-        // { $push: { characters: createdCharacter } },
-        // function( err, result ) {
-        //     if (err) {
-        //         res.send(err);
-        //       } else {
-        //         res.send(result);
-        //       }
-        // })
+        // Add created character to User's character array
+        // User.findOne({user: res.cookie.user})
+        //     .then((foundUser) => {
+        //         foundUser.characters = [...foundUser.characters, createdCharacter]
+        //         foundUser.save()
+        //     })
+        // Show created character if successful
         res.send(`You have created ${createdCharacter}`)
     })
     .catch ((err) => {

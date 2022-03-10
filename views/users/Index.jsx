@@ -8,7 +8,7 @@ class Index extends React.Component {
                 {
                     characters.map((character) => (
                         <article>
-                            <a href={`/users/${user}/characters/${character.name}`}>
+                            <a href={`/users/${user}/characters/${character._id}`}>
                                 <p>
                                     {character.name}
                                 </p>
