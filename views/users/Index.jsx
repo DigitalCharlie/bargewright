@@ -2,7 +2,7 @@ const React = require('react')
 
 class Index extends React.Component {
     render() {
-        const { characters, user }= this.props;
+        const { characters, user } = this.props;
         return (
             <div>
                 {

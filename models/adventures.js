@@ -21,7 +21,7 @@ const advSchema = new Schema({
         required: true
     },
     levelGain:Boolean,
-    goldGain: Number,
+    goldChange: Number,
     downtime: Number,
     dungeonMaster: String,
     magicItems: Array,

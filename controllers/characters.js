@@ -22,6 +22,12 @@ router.get('/', (req,res) => {
     res.send('test')
 })
 
+// NEW
+
+router.get('/new', (req,res) => {
+    res.render('adventures/New', {user:res.cookie.user})
+})
+
 
 //////////////////////////////////////////
 // Export the Router

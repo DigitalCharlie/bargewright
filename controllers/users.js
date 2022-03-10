@@ -5,6 +5,8 @@
 const express = require('express');
 const Character = require('../models/characters')
 const User = require('../models/users')
+const verify = require('../auth/verify')
+const authorize = require('../auth/authorize')
 
 /////////////////////////////////////////
 // Create Router
@@ -23,10 +25,13 @@ const router = express.Router();
 //     res.send('Welcome to your page, ' + res.cookie.user + `. <a href="/logout">click here to log out.</a>`)
 // })
 
+// router.all('/:username/*', verify, authorize);
+
+
 router.get('/', (req,res) => {
     Character.find({ player: res.cookie.user })
         .then ((characters) => {
-            res.render('users/Index', {characters, user:res.cookie.user})
+            res.render('users/Index', {characters, user:res.cookie.username})
         })
         .catch((error) => {
             console.log(error);
