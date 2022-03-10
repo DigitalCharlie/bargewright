@@ -30,11 +30,11 @@ router.get('/new', (req,res) => {
     res.render('users/New')
 })
 
-// DELETE
+// DELETE ??
 
 // UPDATE
 
-// CREATE
+// CREATE NEW USER
 
 router.post('/', async (req,res) => {
     // validation
@@ -68,11 +68,7 @@ router.post('/', async (req,res) => {
 // LOGIN
 
 router.get('/login', (req,res) => {
-    if (!res.cookie.user) {
-        res.render('users/Login')
-    } else {
-        res.redirect(`users/${res.cookie.user}`)
-    }
+    res.render('users/Login')
 })
 
 router.post('/login', async (req,res) => {
@@ -100,7 +96,7 @@ router.post('/login', async (req,res) => {
 router.get('/logout', (req,res) => {
     res.clearCookie('auth-token')
     res.clearCookie('user')
-    res.redirect('/login')
+    res.status(200).redirect('/')
 })
 
 // EDIT

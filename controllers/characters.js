@@ -25,11 +25,21 @@ router.get('/:character', (req,res) => {
         })
 })
 
-// NEW
+// NEW ADVENTURE
 
 router.get('/:character/new', (req,res) => {
     res.render('adventures/New', {character: req.params.character,user:res.cookie.user})
 })
+
+// DELETE CHARACTER
+
+
+
+// UPDATE
+
+// update character
+
+// add new adventure to character's adventure array
 
 
 //////////////////////////////////////////
