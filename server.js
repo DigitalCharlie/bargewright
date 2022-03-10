@@ -7,6 +7,7 @@ const morgan = require('morgan');
 const methodOverride = require('method-override');
 const login = require('./controllers/login')
 const users = require('./controllers/users')
+const characters = require('./controllers/characters')
 const cookieParser = require('cookie-parser')
 
 /////////////////////////////////////////////////
@@ -37,6 +38,7 @@ app.get("/", (req,res) => {
 
 app.use('/', login); // tells user route to use user controller
 app.use('/users/:username', verify, authorize, users); // tells user route to use user controller
+app.use('/users/:username/characters/:character', verify, authorize, characters); // tells user route to use user controller
 
 
 

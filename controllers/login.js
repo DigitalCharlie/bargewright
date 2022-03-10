@@ -68,7 +68,11 @@ router.post('/', async (req,res) => {
 // LOGIN
 
 router.get('/login', (req,res) => {
-    res.render('users/Login')
+    if (!res.cookie.user) {
+        res.render('users/Login')
+    } else {
+        res.redirect(`users/${res.cookie.user}`)
+    }
 })
 
 router.post('/login', async (req,res) => {
