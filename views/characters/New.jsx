@@ -3,9 +3,10 @@ const React = require('react')
 
 class New extends React.Component {
     render() {
+        const { user } = this.props
         return (
             <div>
-                <form action="/" method="post">
+                <form action={`/users/${user}`} method="post">
                     <fieldset>
                     <legend>Create a New Character</legend>
                     <label>

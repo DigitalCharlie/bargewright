@@ -103,11 +103,6 @@ router.get('/logout', (req,res) => {
 
 // SHOW
 
-// router.get('/users/:username', verify, authorize, (req,res) => {
-//     res.send('Welcome to your page, ' + res.cookie.user + `. <a href="/logout">click here to log out.</a>`)
-// })
-
-
 
 
 
