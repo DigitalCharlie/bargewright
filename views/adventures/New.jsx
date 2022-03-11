@@ -1,5 +1,5 @@
 const React = require('react')
-// const DefaultLayout = require('../Default')
+const Default = require('../Default')
 
 class New extends React.Component {
     render() {

@@ -1,4 +1,5 @@
 const React = require('react')
+const Default = require('../Default')
 
 class Index extends React.Component {
     render() {
@@ -10,7 +11,7 @@ class Index extends React.Component {
                     Adventure title: {character.adventures[advNum].name}
                 </p>
                 <hr />
-                <p><a href={`/users/${character.player}/characters/${character._id}/adventures/${advNum}/edit`}>Edit adventure</a></p>
+                <p><a href={`/users/${character.player}/characters/${character._id}/adventures/${advNum}/edit`} id="myButton">Edit adventure</a></p>
                 <form action={`/users/${character.player}/characters/${character._id}/adventures/${advNum}?_method=PUT`} method="POST">
                     <input className="btn btn-danger" type="submit" value={`Delete this adventure log`}/>
                 </form>
