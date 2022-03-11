@@ -1,0 +1,28 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin:0
+}
+
+header {
+    background-color:black;
+    width:100%;
+    padding:15px;
+    border-bottom: 2px solid #dc3545;
+}
+
+.site-logo {
+    max-width:100%;
+    width:180px;
+    margin-left:-20px;
+}
+
+
+@media (max-width: 767px) { 
+    .site-logo {
+        margin:0 auto;
+        display:block;
+    }
+}

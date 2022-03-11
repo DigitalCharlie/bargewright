@@ -6,7 +6,7 @@ class Index extends React.Component {
     render() {
         const { characters, user } = this.props;
         return (
-            <Default>
+            <Default user={user}>
                 {
                     characters.map((character) => (
                         <article>
