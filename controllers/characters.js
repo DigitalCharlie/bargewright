@@ -79,20 +79,25 @@ router.put('/:character/adventures', (req,res) => {
     })
 })
 
-// remove adventure from array
+// update or remove adventure from array
 router.put('/:character/adventures/:advNum', (req,res) => {
     const { user } = res.cookie;
     const { character, advNum } = req.params
-    // establish new adventure
+    // find character to update
     Character.findById(req.params.character)
         .then((foundChar) => {
-            // Add new adventure to the found character's adventure array
-            foundChar.adventures = foundChar.adventures.splice(advNum, 1)
-            // for some reason it's not working without this console log?
-            console.log(foundChar.adventures.splice(advNum, 1))
+            // check if edit or delete adventure is desired
+            if (!req.body) {
+                // remove the adventure
+                foundChar.adventures.splice(advNum, 1)
+            } else {
+                // otherwise update the adventure
+                foundChar.adventures.splice(advNum, 1, req.body)
+            }
+            // Remove the adventure
             // Save the update
             foundChar.save()
-            // Show created character if successful
+            // Redirect back to character
             res.redirect(`/users/${user}/characters/${character}`)
         })
     .catch ((err) => {
@@ -109,6 +114,15 @@ router.get('/:character/edit', (req,res) => {
         })
 })
 
+// edit adventure
+
+router.get('/:character/adventures/:advNum/edit', (req,res) => {
+    Character.findById(req.params.character)
+    .then((foundChar) => {
+        res.render('adventures/Edit', {character: foundChar,user:res.cookie.user, advNum: req.params.advNum})
+    })
+})
+
 // SHOW (which is a character's home page, but whatever)
 
 router.get('/:character', (req,res) => {
@@ -121,10 +135,10 @@ router.get('/:character', (req,res) => {
 
 // show adventure page
 
-router.get('/:character/adventures/:adv', (req,res) => {
+router.get('/:character/adventures/:advNum', (req,res) => {
     Character.findById(req.params.character)
         .then(( foundChar ) => {
-            res.render('adventures/Show', {character: foundChar, advNum: req.params.adv})
+            res.render('adventures/Show', {character: foundChar, advNum: req.params.advNum})
             // res.send(`This is a test of ${foundChar.name}'s page`)
         })
 })

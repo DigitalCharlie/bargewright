@@ -7,7 +7,7 @@ class Index extends React.Component {
             <div>
                 <h1>Adventurer's Log</h1>
                 <p>
-                    Adventure title: {character.adventures[0].name}
+                    Adventure title: {character.adventures[advNum].name}
                 </p>
                 <hr />
                 <p><a href={`/users/${character.player}/characters/${character._id}/adventures/${advNum}/edit`}>Edit adventure</a></p>
