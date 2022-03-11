@@ -6,7 +6,7 @@ class Index extends React.Component {
     render() {
         const { characters, user } = this.props;
         return (
-            <div>
+            <Default>
                 {
                     characters.map((character) => (
                         <article>
@@ -21,7 +21,7 @@ class Index extends React.Component {
                 <form action={`/users/${user}?_method=DELETE`} method="POST">
                     <input className="btn btn-danger" type="submit" value={`Delete user`}/>
                 </form>
-            </div>
+            </Default>
         )
     }
 }

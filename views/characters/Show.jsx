@@ -5,7 +5,7 @@ class Index extends React.Component {
     render() {
         const { character } = this.props;
         return (
-            <div>
+            <Default>
                 <h1>{character.name}</h1>
                 <p>{character.name} is a {character.race} {character.class}</p>
                 <p><a href={`/users/${character.player}/characters/${character._id}/adventures/new`}>Log new adventure</a></p>
@@ -28,7 +28,7 @@ class Index extends React.Component {
                     <input className="btn btn-danger" type="submit" value={`Delete ${character.name}`}/>
                 </form>
                 <p><a href={`/users/${character.player}`}>Back to your characters</a></p>
-            </div>
+            </Default>
         )
     }
 }

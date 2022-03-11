@@ -6,7 +6,7 @@ class New extends React.Component {
         const { character, advNum, user } = this.props;
         const adv = character.adventures[advNum]
         return (
-            <div>
+            <Default>
                 <form action={`/users/${user}/characters/${character._id}/adventures/${advNum}?_method=PUT`} method="post">
                     <fieldset>
                     <legend>Log Another Adventure for {character.name}</legend>
@@ -37,7 +37,7 @@ class New extends React.Component {
                     </fieldset>
                     <input type="submit" value="update adventure log" />
                 </form>
-            </div>
+            </Default>
         )
     }
 }

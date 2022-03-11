@@ -4,7 +4,7 @@ const Default = require('../Default')
 class New extends React.Component {
     render() {
         return (
-            <div>
+            <Default>
                 <form action="/login" method="post">
                     <fieldset>
                     <legend>Login</legend>
@@ -17,7 +17,7 @@ class New extends React.Component {
                     </fieldset>
                     <input type="submit" value="Log in" />
                 </form>
-            </div>
+            </Default>
         )
     }
 }
