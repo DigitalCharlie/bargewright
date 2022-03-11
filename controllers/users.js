@@ -55,8 +55,6 @@ router.delete('/', async (req, res) => {
 
 router.put('/', (req,res) => {
     const { user } = res.cookie
-    console.log(user)
-    console.log(req.body)
     User.findOneAndUpdate({ username: user }, req.body, {new:true})
         .then(() => {
             res.redirect(`/users/${user}`)

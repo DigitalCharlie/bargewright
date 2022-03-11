@@ -4,12 +4,11 @@ const React = require('react')
 class New extends React.Component {
     render() {
         const { user, character } = this.props
-        console.log(this.props.character)
         return (
             <div>
-                <form action={`/users/${user}/characters/${character}`} method="post">
+                <form action={`/users/${user}/characters/${character._id}/adventures?_method=PUT`} method="post">
                     <fieldset>
-                    <legend>Create a New Character</legend>
+                    <legend>Log Another Adventure for {character.name}</legend>
                     <label>
                         NAME:<input type="text" name="name" placeholder="enter adventure name" />
                     </label>
@@ -35,7 +34,7 @@ class New extends React.Component {
                         NOTES:<input type="text" name="notes" placeholder="adventure notes"/>
                     </label>
                     </fieldset>
-                    <input type="submit" value="create new character" />
+                    <input type="submit" value="log adventure" />
                 </form>
             </div>
         )
