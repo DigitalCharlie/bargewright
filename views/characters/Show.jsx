@@ -7,7 +7,18 @@ class Index extends React.Component {
             <div>
                 <h1>{character.name}</h1>
                 <p>{character.name} is a {character.race} {character.class}</p>
-
+                <hr />
+                <h3>Adventures</h3>
+                {
+                    character.adventures.map((adventure) => (
+                        <article>
+                                <p>
+                                    {adventure.name}
+                                </p>
+                        </article>
+                    ))
+                }
+                <hr />
                 <p><a href={`/users/${character.player}/characters/${character._id}/edit`}>Edit {character.name}</a></p>
                 <form action={`/users/${character.player}/characters/${character._id}?_method=DELETE`} method="POST">
                     <input className="btn btn-danger" type="submit" value={`Delete ${character.name}`}/>
