@@ -20,19 +20,19 @@ const router = express.Router();
 
 // INDEX
 
-router.get('/', (req,res) => {
-    res.send('Testing')
-})
+router.get("/", (req,res) => {
+    if (req.cookies['auth-token']) {
+        res.redirect(`/users/${req.cookies.user}`)
+    } else {
+        res.render('home/Index')
+    }
+});
 
 // NEW
 
 router.get('/new', (req,res) => {
     res.render('users/New')
 })
-
-// DELETE ??
-
-// UPDATE
 
 // CREATE NEW USER
 
@@ -68,7 +68,11 @@ router.post('/', async (req,res) => {
 // LOGIN
 
 router.get('/login', (req,res) => {
-    res.render('users/Login')
+    if (req.cookies['auth-token']) {
+        res.redirect(`/users/${req.cookies.user}`)
+    } else {
+        res.render('users/Login')
+    }
 })
 
 router.post('/login', async (req,res) => {
@@ -88,6 +92,7 @@ router.post('/login', async (req,res) => {
     // this is what I have questions about rn — res.cookie vs res.locals
     const token = jwt.sign({_id:user._id, username:user.username}, process.env.JWT_SECRET, { expiresIn: '1h' })
     res.cookie('auth-token', token, { httpOnly: true, maxAge:60*60*1000 })
+    res.cookie('user', user.username, { httpOnly: true, maxAge:60*60*1000 })
         .redirect(`/users/${req.body.username}`)
 })
 
@@ -96,6 +101,7 @@ router.post('/login', async (req,res) => {
 router.get('/logout', (req,res) => {
     res.clearCookie('auth-token')
     res.clearCookie('user')
+    res.clearCookie('username')
     res.status(200).redirect('/')
 })
 

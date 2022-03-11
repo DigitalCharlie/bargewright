@@ -34,10 +34,6 @@ const authorize = require('./auth/authorize')
 // Routing
 /////////////////////////////////////////////////////
 
-app.get("/", (req,res) => {
-    res.render('home/Index')
-});
-
 app.use('/', login); // tells user route to use user controller
 app.use('/users/:username', verify, authorize, users); // tells user route to use user controller
 app.use('/users/:username/characters/', verify, authorize, characters); // tells user route to use user controller

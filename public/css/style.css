@@ -8,6 +8,7 @@ body {
 
 header {
     background-color:black;
+    color:#fff;
     width:100%;
     padding:15px;
     border-bottom: 2px solid #dc3545;
@@ -17,6 +18,20 @@ header {
     max-width:100%;
     width:180px;
     margin-left:-20px;
+}
+
+.nav-login-input {
+    width:125px;
+    margin:2px;
+}
+
+footer {
+    background-color: #242424;
+    color:#7e7e7e;
+    font-size:.8em;
+    position:fixed;
+    bottom:0;
+    width:100%;
 }
 
 

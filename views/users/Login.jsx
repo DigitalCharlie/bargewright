@@ -1,3 +1,4 @@
+const res = require('express/lib/response')
 const React = require('react')
 const Default = require('../Default')
 
@@ -12,7 +13,7 @@ class New extends React.Component {
                         USERNAME:<input type="text" name="username" placeholder="enter username" />
                     </label>
                     <label>
-                        PASSWORD:<input type="text" name="password" placeholder="create password" />
+                        PASSWORD:<input type="password" name="password" placeholder="enter password" />
                     </label>
                     </fieldset>
                     <input type="submit" value="Log in" />
