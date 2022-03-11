@@ -35,7 +35,7 @@ const authorize = require('./auth/authorize')
 /////////////////////////////////////////////////////
 
 app.get("/", (req,res) => {
-    res.send(`Welcome to The Bargewright Inn. ` + `<a href="/login">click here to login</a>`)
+    res.render('home/Index')
 });
 
 app.use('/', login); // tells user route to use user controller
