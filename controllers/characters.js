@@ -79,6 +79,26 @@ router.put('/:character/adventures', (req,res) => {
     })
 })
 
+// remove adventure from array
+router.put('/:character/adventures/:advNum', (req,res) => {
+    const { user } = res.cookie;
+    const { character, advNum } = req.params
+    // establish new adventure
+    Character.findById(req.params.character)
+        .then((foundChar) => {
+            // Add new adventure to the found character's adventure array
+            foundChar.adventures = foundChar.adventures.splice(advNum, 1)
+            // for some reason it's not working without this console log?
+            console.log(foundChar.adventures.splice(advNum, 1))
+            // Save the update
+            foundChar.save()
+            // Show created character if successful
+            res.redirect(`/users/${user}/characters/${character}`)
+        })
+    .catch ((err) => {
+        res.status(400).json(err)
+    })
+})
 
 // EDIT
 
@@ -95,6 +115,16 @@ router.get('/:character', (req,res) => {
     Character.findById(req.params.character)
         .then(( foundChar ) => {
             res.render('characters/Show', {character: foundChar})
+            // res.send(`This is a test of ${foundChar.name}'s page`)
+        })
+})
+
+// show adventure page
+
+router.get('/:character/adventures/:adv', (req,res) => {
+    Character.findById(req.params.character)
+        .then(( foundChar ) => {
+            res.render('adventures/Show', {character: foundChar, advNum: req.params.adv})
             // res.send(`This is a test of ${foundChar.name}'s page`)
         })
 })

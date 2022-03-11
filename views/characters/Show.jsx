@@ -7,13 +7,16 @@ class Index extends React.Component {
             <div>
                 <h1>{character.name}</h1>
                 <p>{character.name} is a {character.race} {character.class}</p>
+                <p><a href={`/users/${character.player}/characters/${character._id}/adventures/new`}>Log new adventure</a></p>
                 <hr />
                 <h3>Adventures</h3>
                 {
-                    character.adventures.map((adventure) => (
+                    character.adventures.map((adventure, index) => (
                         <article>
                                 <p>
-                                    {adventure.name}
+                                    <a href={`/users/${character.player}/characters/${character._id}/adventures/${index}`}>
+                                        {adventure.name}
+                                    </a>
                                 </p>
                         </article>
                     ))
