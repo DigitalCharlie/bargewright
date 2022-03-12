@@ -38,16 +38,16 @@ router.get('/', (req,res) => {
 
 // SORTED INDEX
 
-router.get('/sort/:field/', (req,res) => {
+router.get('/sort/:field/:direction', (req,res) => {
     let { field } = req.params
     // This directional sorting works, but I don't want to implement it because time.
-    // field = req.params.direction === 'asc' ? field : "-"+field 
+    field = req.params.direction === 'asc' ? field : "-"+field 
     User.findOne({username: res.cookie.user})
         .then((userObj) => {
             Character.find({ player: userObj.username })
             .sort(field)
             .then ((characters) => {
-                res.render('users/Index', {characters, user:userObj.username, userObj})
+                res.render('users/Index', {characters, user:userObj.username, userObj, sort:field})
             })
             .catch((error) => {
                 console.log(error);

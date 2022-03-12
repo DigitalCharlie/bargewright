@@ -5,10 +5,12 @@ const User = require('../../models/users')
 
 class Index extends React.Component {
     render() {
-        const { characters, user, userObj } = this.props;
-        // const userObj = User.findOne({username: user})
-        // console.log(userObj.username)
-        console.log(userObj)
+        const { characters, user, userObj, sort } = this.props;
+        console.log(sort)
+        const nameSort = sort === 'name' ? 'name/desc' : 'name/asc'
+        const raceSort = sort === 'race' ? 'race/desc' : 'race/asc'
+        const classSort = sort === 'class' ? 'class/desc' : 'class/asc'
+        const levelSort =  sort === 'level' ? 'level/desc' : 'level/asc'
         return (
             <Default user={user}>
                 <article className="wide-content">
@@ -19,10 +21,10 @@ class Index extends React.Component {
                     <table className="table table-hover table-sm">
                         <thead>
                             <tr>
-                                <th scope="col"><a href={`/users/${user}/sort/name`}>Name</a></th>
-                                <th scope="col"><a href={`/users/${user}/sort/race`}>Race</a></th>
-                                <th scope="col"><a href={`/users/${user}/sort/class`}>Class</a></th>
-                                <th scope="col"><a href={`/users/${user}/sort/level`}>Level</a></th>
+                                <th scope="col"><a href={`/users/${user}/sort/${nameSort}`}>Name</a></th>
+                                <th scope="col"><a href={`/users/${user}/sort/${raceSort}`}>Race</a></th>
+                                <th scope="col"><a href={`/users/${user}/sort/${classSort}`}>Class</a></th>
+                                <th scope="col"><a href={`/users/${user}/sort/${levelSort}`}>Level</a></th>
                                 <th scope="col">Quicklinks</th>
                             </tr>
                         </thead>
