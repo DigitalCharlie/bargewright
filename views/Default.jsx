@@ -6,7 +6,7 @@ class Default extends React.Component {
         let navLink = ''
         // Set nav options based on whether it's a logged in page
         if (user) {
-            navLink = <ul class="navbar-nav mr-auto"><li className="nav-item"><a className="nav-link"  href={`/users/${user}`}>My Account</a></li><li className="nav-item"><a className="nav-link" href="/logout">Logout</a></li></ul>
+            navLink = <ul className="navbar-nav mr-auto"><li className="nav-item"><a className="nav-link"  href={`/users/${user}`}>My Account</a></li><li className="nav-item"><a className="nav-link" href="/logout">Logout</a></li></ul>
         } else {
             navLink =
             <ul class="navbar-nav mr-auto">

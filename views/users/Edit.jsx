@@ -8,7 +8,7 @@ class New extends React.Component {
             <Default>
                 <form action={`/users/${user.username}?_method=PUT`} method="post">
                     <fieldset>
-                    <legend>Create a New User</legend>
+                    <legend>Edit profile</legend>
                     <label>
                         EMAIL:<input type="text" name="email" placeholder="enter email" defaultValue={user.email} />
                     </label>

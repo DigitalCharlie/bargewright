@@ -121,6 +121,9 @@ router.get('/:character/adventures/:advNum/edit', (req,res) => {
     .then((foundChar) => {
         res.render('adventures/Edit', {character: foundChar,user:res.cookie.user, advNum: req.params.advNum})
     })
+    .catch (() => {
+        res.redirect('/')
+    })
 })
 
 // SHOW (which is a character's home page, but whatever)
@@ -131,6 +134,9 @@ router.get('/:character', (req,res) => {
             res.render('characters/Show', {character: foundChar})
             // res.send(`This is a test of ${foundChar.name}'s page`)
         })
+        .catch (() => {
+            res.redirect('/')
+        })
 })
 
 // show adventure page
@@ -140,6 +146,9 @@ router.get('/:character/adventures/:advNum', (req,res) => {
         .then(( foundChar ) => {
             res.render('adventures/Show', {character: foundChar, advNum: req.params.advNum})
             // res.send(`This is a test of ${foundChar.name}'s page`)
+        })
+        .catch (() => {
+            res.redirect('/')
         })
 })
 

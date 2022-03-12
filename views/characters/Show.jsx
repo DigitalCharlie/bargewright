@@ -6,8 +6,7 @@ class Index extends React.Component {
         const { character } = this.props;
         return (
             <Default user={character.player}>
-                <h1>{character.name}</h1>
-                <p>{character.name} is a {character.race} {character.class}</p>
+                <h1>{character.name} the {character.race} {character.class}</h1>
                 <p><a href={`/users/${character.player}/characters/${character._id}/adventures/new`}>Log new adventure</a></p>
                 <hr />
                 <h3>Adventures</h3>
