@@ -4,13 +4,12 @@ const Default = require('../Default')
 
 class New extends React.Component {
     render() {
-        // const { error } = this.props
+        const { error } = this.props
         return (
             <Default>
-                {/* <p>{error}</p> */}
                 <article className="narrow-content">
                     <h1>Remind me, what's your name again?</h1>
-                    <p>I swear I remember your face.</p>
+                    <p className="error">{error}</p>
                     <form action="/login" method="post">
                         <input type="text" name="username" placeholder="username" /><br />
                         <input type="password" name="password" placeholder="password" /><br />

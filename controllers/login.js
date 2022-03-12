@@ -39,11 +39,11 @@ router.get('/new', (req,res) => {
 router.post('/', async (req,res) => {
     // validation
     const { error } = registerValid(req.body)
-    if (error) return res.status(400).send(error.details[0].message)
+    if (error) return res.render(`users/New`, {error: error.details[0].message})
 
     // does user already exist?
     const alreadyRegistered = await User.findOne({username:req.body.username})
-    if (alreadyRegistered) return res.status(400).send('Username is taken')
+    if (alreadyRegistered) return res.render(`users/New`, {error: "Username is taken"})
 
     // Hash the password
     const salt = await bcrypt.genSaltSync(10)
@@ -78,16 +78,15 @@ router.get('/login', (req,res) => {
 router.post('/login', async (req,res) => {
     // validate input
     const { error } = loginValid(req.body)
-    if (error) return res.status(400).send(error.details[0].message)
-    // res.redirect(`/login`, {error: error.details[0].message})
+    if (error) return res.render(`users/Login`, {error: error.details[0].message})
 
     // is it a valid user?
     const user = await User.findOne({username:req.body.username})
-    if (!user) return res.status(400).send('Username or password are not valid')
+    if (!user) return res.render(`users/Login`, {error:'Username or password are not valid'})
 
     // is the password correct?
     const validPassword = await bcrypt.compareSync(req.body.password, user.password)
-    if (!validPassword) return res.status(400).send('Username or password are not valid')
+    if (!validPassword) res.render(`users/Login`, {error:'Username or password are not valid'})
 
     // create jwt
     // this is what I have questions about rn — res.cookie vs res.locals

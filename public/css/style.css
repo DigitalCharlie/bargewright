@@ -29,7 +29,16 @@ header {
 
 .tiny-text a {
     text-decoration:none;
-    color:#fff;
+    color:rgba(255,255,255,.55);
+    transition:.15s;
+}
+
+.tiny-text a:hover {
+    color:rgba(255,255,255,.75);
+}
+
+.error {
+    color:red;
 }
 
 /* NAV ITEMS */
@@ -97,6 +106,10 @@ input.nav-login-input, input.nav-login-input::placeholder {
      width:250px;
      text-align:center;
      margin:2px;
+ }
+
+ .narrow-content h1 {
+     margin-bottom:25px;
  }
 
 /* FOOTER */
