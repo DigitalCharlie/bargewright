@@ -14,6 +14,7 @@ header {
     border-bottom: 2px solid #dc3545;
 }
 
+/* NAV ITEMS */
 .site-logo {
     max-width:100%;
     width:250px;
@@ -43,9 +44,18 @@ input.nav-login-input, input.nav-login-input::placeholder {
     margin: 0 10px
 }
 
-.main-content {
+/* MAIN CONTENT */
+
+#bg {
     min-height:85vh; /* this probably isn't the best option but it's a placeholder*/
+    background-image: url(/images/yawning-portal.jpeg);
+    background-position:center;
+    background-size:cover;
 }
+
+
+
+/* FOOTER */
 
 footer {
     background-color: #242424;

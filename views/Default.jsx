@@ -29,7 +29,7 @@ class Default extends React.Component {
                 <body>
                     <header>
                         <div className="container">
-                            <nav className="navbar navbar-expand-lg justify-content-between navbar-dark">
+                            <nav className="navbar navbar-expand-md justify-content-between navbar-dark">
                                 <a className="navbar-brand" href="/"><img src="/images/bargewright-logo.png" alt="The Bargewright Inn logo" className="site-logo"/></a>
                                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                     <span className="navbar-toggler-icon"></span>
@@ -41,11 +41,13 @@ class Default extends React.Component {
                             </nav>
                         </div>
                     </header>
-                    <div className="container main-content">
-                        {this.props.children}
+                    <div id="bg">
+                        <div className="container main-content">
+                            {this.props.children}
+                        </div>
                     </div>
                     <footer>
-                        <div className="container">
+                        <div className="container w-50 text-center">
                             <p>Disclaimer text that is funny.</p>
                         </div>
                     </footer>
