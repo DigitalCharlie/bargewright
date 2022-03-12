@@ -8,18 +8,16 @@ class New extends React.Component {
         return (
             <Default>
                 {/* <p>{error}</p> */}
-                <form action="/login" method="post">
-                    <fieldset>
-                    <legend>Login</legend>
-                    <label>
-                        USERNAME:<input type="text" name="username" placeholder="enter username" />
-                    </label>
-                    <label>
-                        PASSWORD:<input type="password" name="password" placeholder="enter password" />
-                    </label>
-                    </fieldset>
-                    <input type="submit" value="Log in" />
-                </form>
+                <article className="narrow-content">
+                    <h1>Remind me, what's your name again?</h1>
+                    <p>I swear I remember your face.</p>
+                    <form action="/login" method="post">
+                        <input type="text" name="username" placeholder="username" /><br />
+                        <input type="password" name="password" placeholder="password" /><br />
+                        <input type="submit" className="btn btn-danger" value="Log in" />
+                    </form>
+                    <p className="tiny-text"><a href="/new">Register</a></p>
+                </article>
             </Default>
         )
     }

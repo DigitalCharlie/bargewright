@@ -7,8 +7,14 @@ class Index extends React.Component {
         // const { characters, user } = this.props;
         return (
             <Default>
-                <p>Welcome to the Bargewright Inn.</p>
-                <a href="/login">Login</a>
+                <article className="narrow-content">
+                    <h1>Welcome to The Bargewright Inn, adventurer!</h1>
+                    <p>We look forward to hearing tales of your deeds and promise to keep accurate records of them.</p>
+                    <p>If you're a first timer, take a minute to register — otherwise take a seat at your usual table.</p>
+                    <a className="btn btn-light" href="/login">Login</a>
+                    <a className="btn btn-danger" href="/new">Register</a>
+                </article>
+
             </Default>
         )
     }
