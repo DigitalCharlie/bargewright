@@ -36,6 +36,30 @@ router.get('/', (req,res) => {
     });
 })
 
+// SORTED INDEX
+
+router.get('/sort/:field/', (req,res) => {
+    let { field } = req.params
+    // This directional sorting works, but I don't want to implement it because time.
+    // field = req.params.direction === 'asc' ? field : "-"+field 
+    User.findOne({username: res.cookie.user})
+        .then((userObj) => {
+            Character.find({ player: userObj.username })
+            .sort(field)
+            .then ((characters) => {
+                res.render('users/Index', {characters, user:userObj.username, userObj})
+            })
+            .catch((error) => {
+                console.log(error);
+                res.json({ error });
+            });
+        })
+    .catch((error) => {
+        console.log(error);
+        res.json({ error });
+    });
+})
+
 // NEW
 
 router.get('/new', (req,res) => {
@@ -62,7 +86,6 @@ router.delete('/', async (req, res) => {
 
 router.put('/', (req,res) => {
     const { user } = res.cookie
-    console.log(req.body)
     User.findOneAndUpdate({ username: user }, req.body, {new:true})
         .then(() => {
             res.redirect(`/users/${user}`)

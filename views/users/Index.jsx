@@ -14,17 +14,43 @@ class Index extends React.Component {
                 <article className="wide-content">
                     <h1>Welcome back, {user}</h1>
                     <p className="welcome-msg">{userObj.welcome}</p>
-                    {
-                        characters.map((character) => (
-                            <article>
-                                <a href={`/users/${user}/characters/${character._id}`}>
-                                    <p>
-                                        {character.name}
-                                    </p>
-                                </a>
-                            </article>
-                        ))
-                    }
+                    <hr />
+                    <h3>Characters</h3>
+                    <table className="table table-hover table-sm">
+                        <thead>
+                            <tr>
+                                <th scope="col"><a href={`/users/${user}/sort/name`}>Name</a></th>
+                                <th scope="col"><a href={`/users/${user}/sort/race`}>Race</a></th>
+                                <th scope="col"><a href={`/users/${user}/sort/class`}>Class</a></th>
+                                <th scope="col"><a href={`/users/${user}/sort/level`}>Level</a></th>
+                                <th scope="col">Quicklinks</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                characters.map((character) => (
+                                    <tr>
+                                        <td>
+                                            <a href={`/users/${user}/characters/${character._id}`}>{character.name}</a>
+                                        </td>
+                                        <td>
+                                            <a href={`/users/${user}/characters/${character._id}`}>{character.race}</a>
+                                        </td>
+                                        <td>
+                                            <a href={`/users/${user}/characters/${character._id}`}>{character.class}</a>
+                                        </td>
+                                        <td>
+                                            <a href={`/users/${user}/characters/${character._id}`}>{character.level}</a>
+                                        </td>
+                                        <td className="quick-links">
+                                            <a href={`/users/${user}/characters/${character._id}/edit`}>📝</a>&nbsp;&nbsp;<a href={`/users/${user}/characters/${character._id}/adventures/new`}>🆕</a>
+                                        </td>                                                                                                                 
+                                    </tr>
+                                ))
+                            }
+                        </tbody>
+
+                    </table>
                     <p className='tiny-text'><a href={`/users/${user}/edit`}>Edit Account</a></p>
                 </article>
             </Default>

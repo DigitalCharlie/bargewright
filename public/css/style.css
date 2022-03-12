@@ -22,7 +22,7 @@ header {
 
 /* SITE WIDE TEXT OPTIONS */
 
-h1 {
+h1, h2, h3 {
     text-align: center;
 }
 
@@ -80,7 +80,7 @@ input.nav-login-input, input.nav-login-input::placeholder {
 /* MAIN CONTENT */
 
 #bg {
-    min-height:85vh; /* this probably isn't the best option but it's a placeholder*/
+    min-height:90vh; /* this probably isn't the best option but it's a placeholder*/
     background-image: url(/images/yawning-portal.jpeg);
     background-position:center;
     background-size:cover;
@@ -109,6 +109,9 @@ input.nav-login-input, input.nav-login-input::placeholder {
     background: rgba(0,0,0,.7);
     padding: 20px 40px 30px;
     border-radius: 10px;
+    width:950px;
+    margin:0 auto;
+    max-width:85vw
 }
 
  /* LOGIN */
@@ -150,6 +153,22 @@ footer {
 .welcome-msg {
     text-align:center;
     font-style:italic;
+}
+
+/* TABLE STYLES */
+
+td a, thead a, thead {
+    color:#fff;
+    text-decoration: none;
+}
+
+.table>:not(:first-child) {
+    border-top: 2px solid white;
+}
+
+.quick-links {
+    width:90px;
+    text-align:center;
 }
 
 

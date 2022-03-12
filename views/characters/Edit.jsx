@@ -8,7 +8,7 @@ class New extends React.Component {
             <Default>
                 <form action={`/users/${character.player}/characters/${character._id}?_method=PUT`} method="POST">
                     <fieldset>
-                    <legend>Create a New Character</legend>
+                    <legend>Edit Character</legend>
                     <label>
                         NAME:<input type="text" name="name" defaultValue={character.name} />
                     </label>
