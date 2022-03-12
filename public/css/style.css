@@ -145,6 +145,13 @@ footer {
     margin-right: 3px;
 }
 
+/* INDEX PAGE */
+
+.welcome-msg {
+    text-align:center;
+    font-style:italic;
+}
+
 
 @media (max-width: 767px) { 
     .site-logo {

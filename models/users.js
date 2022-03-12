@@ -25,6 +25,7 @@ const userSchema = new Schema({
         required: true,
     },
     characters: Array,
+    welcome:String
 });
 
 // make user model

@@ -5,14 +5,15 @@ const User = require('../../models/users')
 
 class Index extends React.Component {
     render() {
-        const { characters, user } = this.props;
+        const { characters, user, userObj } = this.props;
         // const userObj = User.findOne({username: user})
         // console.log(userObj.username)
-        console.log(user)
+        console.log(userObj)
         return (
             <Default user={user}>
                 <article className="wide-content">
                     <h1>Welcome back, {user}</h1>
+                    <p className="welcome-msg">{userObj.welcome}</p>
                     {
                         characters.map((character) => (
                             <article>

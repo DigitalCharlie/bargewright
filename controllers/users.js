@@ -19,14 +19,21 @@ const router = express.Router();
 // INDEX
 
 router.get('/', (req,res) => {
-    Character.find({ player: res.cookie.user })
-        .then ((characters) => {
-            res.render('users/Index', {characters, user:res.cookie.user})
+    User.findOne({username: res.cookie.user})
+        .then((userObj) => {
+            Character.find({ player: userObj.username })
+            .then ((characters) => {
+                res.render('users/Index', {characters, user:userObj.username, userObj})
+            })
+            .catch((error) => {
+                console.log(error);
+                res.json({ error });
+            });
         })
-        .catch((error) => {
-            console.log(error);
-            res.json({ error });
-        });
+    .catch((error) => {
+        console.log(error);
+        res.json({ error });
+    });
 })
 
 // NEW
@@ -55,6 +62,7 @@ router.delete('/', async (req, res) => {
 
 router.put('/', (req,res) => {
     const { user } = res.cookie
+    console.log(req.body)
     User.findOneAndUpdate({ username: user }, req.body, {new:true})
         .then(() => {
             res.redirect(`/users/${user}`)
