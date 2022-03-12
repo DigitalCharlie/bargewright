@@ -16,22 +16,44 @@ header {
 
 .site-logo {
     max-width:100%;
-    width:180px;
-    margin-left:-20px;
+    width:250px;
+    margin-left:-25px;
+}
+
+.navbar-nav form {
+    padding-top:5px;
 }
 
 .nav-login-input {
-    width:125px;
+    width:110px;
     margin:2px;
+}
+
+input.nav-login-input, input.nav-login-input::placeholder {
+    font-size:13px;
+}
+
+.navbar-nav form .btn {
+    line-height:1.1;
+    background-color: #dc3545;
+    border: .5px solid #dc3545;
+}
+
+.nav-item {
+    margin: 0 10px
+}
+
+.main-content {
+    min-height:85vh; /* this probably isn't the best option but it's a placeholder*/
 }
 
 footer {
     background-color: #242424;
     color:#7e7e7e;
     font-size:.8em;
-    position:fixed;
     bottom:0;
     width:100%;
+    padding: 15px;
 }
 
 

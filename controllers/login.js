@@ -79,6 +79,7 @@ router.post('/login', async (req,res) => {
     // validate input
     const { error } = loginValid(req.body)
     if (error) return res.status(400).send(error.details[0].message)
+    // res.redirect(`/login`, {error: error.details[0].message})
 
     // is it a valid user?
     const user = await User.findOne({username:req.body.username})

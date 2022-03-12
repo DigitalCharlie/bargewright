@@ -4,8 +4,10 @@ const Default = require('../Default')
 
 class New extends React.Component {
     render() {
+        // const { error } = this.props
         return (
             <Default>
+                {/* <p>{error}</p> */}
                 <form action="/login" method="post">
                     <fieldset>
                     <legend>Login</legend>
