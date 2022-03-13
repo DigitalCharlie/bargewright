@@ -9,10 +9,10 @@ class New extends React.Component {
                 <article className="narrow-content">
                     <h1>Create a new character</h1>
                     <form action={`/users/${user}`} method="post">
-                        <input type="text" name="name" placeholder="character name" /><br />
-                        <input type="text" name="race" placeholder="character race" /><br />
-                        <input type="text" name="class" placeholder="character class" /><br />
-                        <input type="number" name="level" placeholder="starting level"/><br />
+                        <input type="text" name="name" placeholder="character name" required /><br />
+                        <input type="text" name="race" placeholder="character race" required/><br />
+                        <input type="text" name="class" placeholder="character class" required /><br />
+                        <input type="number" name="level" placeholder="starting level" required/><br />
                         <input type="text" name="image" placeholder="link to character image (optional)"/><br />
                         <input className="btn btn-danger" type="submit" value="create new character" />
                     </form>

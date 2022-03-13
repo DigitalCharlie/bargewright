@@ -8,9 +8,9 @@ class New extends React.Component {
             <Default user={user}>
                 <article className="narrow-content">
                     <h1>Log another adventure for {character.name}</h1>
-                    <form action={`/users/${user}/characters/${character._id}/adventures?_method=PUT`} method="post">
-                        <input type="text" name="name" placeholder="enter adventure name" /><br />
-                        <input type="date" name="date" placeholder="when did you play" /><br />
+                    <form className='needs-validation' action={`/users/${user}/characters/${character._id}/adventures?_method=PUT`} method="post">
+                        <input type="text" name="name" placeholder="enter adventure name" required/><br />
+                        <input type="date" name="date" placeholder="when did you play" required/><br />
                         <input type="number" name="goldChange" placeholder="gold found" /><br />
                         <input type="number" name="downtime" placeholder="downtime earned (default 10)" /><br />
                         <input type="text" name="dungeonMaster" placeholder="dungeon master name"/><br />

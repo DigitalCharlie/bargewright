@@ -10,13 +10,13 @@ class New extends React.Component {
                     <h1>Edit {character.name}</h1>
                     <form action={`/users/${character.player}/characters/${character._id}?_method=PUT`} method="post">
                         <label className="field-label">Character name</label> <br />
-                        <input type="text" name="name" defaultValue={character.name}/><br />
+                        <input type="text" name="name" defaultValue={character.name} required/><br />
                         <label className="field-label">Race</label> <br />
-                        <input type="text" name="race" defaultValue={character.race} /><br />
+                        <input type="text" name="race" defaultValue={character.race} required/><br />
                         <label className="field-label">Class</label> <br />
-                        <input type="text" name="class" defaultValue={character.class} /><br />
+                        <input type="text" name="class" defaultValue={character.class} required/><br />
                         <label className="field-label">Level</label> <br />
-                        <input type="number" name="level" defaultValue={character.level}/><br />
+                        <input type="number" name="level" defaultValue={character.level} required/><br />
                         <label className="field-label">Link to Character Image</label> <br />
                         <input type="text" name="image" defaultValue={character.image} /><br />
                         <label className="field-label textarea-label">Additional character notes</label> <br />

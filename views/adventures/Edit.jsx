@@ -10,8 +10,8 @@ class New extends React.Component {
                 <article className="narrow-content">
                     <h1>Edit {character.name}'s Adventure Log</h1>
                     <form action={`/users/${user}/characters/${character._id}/adventures/${advNum}?_method=PUT`} method="post">
-                        <input type="text" name="name" defaultValue={adv.name} /><br />
-                        <input type="date" name="date" defaultValue={adv.date} /><br />
+                        <input type="text" name="name" defaultValue={adv.name} required /><br />
+                        <input type="date" name="date" defaultValue={adv.date} required/><br />
                         <input type="number" name="goldChange" defaultValue={adv.goldChange} placeholder="gold"/><br />
                         <input type="number" name="downtime" defaultValue={adv.downtime} placeholder="downtime" /><br />
                         <input type="text" name="dungeonMaster" defaultValue={adv.dungeonMaster} placeholder="dungeon master"/><br />
