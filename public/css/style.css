@@ -124,7 +124,7 @@ input.nav-login-input, input.nav-login-input::placeholder {
 
  /* LOGIN */
 
- .narrow-content form input {
+ .narrow-content form input, .narrow-content form textarea {
      width:250px;
      text-align:center;
      margin:2px;
@@ -132,6 +132,14 @@ input.nav-login-input, input.nav-login-input::placeholder {
 
  .narrow-content h1 {
      margin-bottom:25px;
+ }
+
+ .field-label {
+     margin-top:10px;
+ }
+
+ .narrow-content .edit-input {
+     width:80%;
  }
 
 /* FOOTER */
