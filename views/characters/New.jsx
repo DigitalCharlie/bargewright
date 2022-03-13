@@ -13,7 +13,8 @@ class New extends React.Component {
                         <input type="text" name="race" placeholder="character race" required/><br />
                         <input type="text" name="class" placeholder="character class" required /><br />
                         <input type="number" name="level" placeholder="starting level" required/><br />
-                        <input type="text" name="image" placeholder="link to character image (optional)"/><br />
+                        <input type="text" name="image" placeholder="link to character portrait (optional)"/><br />
+                        <input type="text" name="sheet" placeholder="link to character sheet (optional)"/><br />
                         <input className="btn btn-danger" type="submit" value="create new character" />
                     </form>
                     <p className='tiny-text'><a href={`/users/${user}`}>Back to your characters</a></p>

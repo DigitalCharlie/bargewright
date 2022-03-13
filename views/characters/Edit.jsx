@@ -7,7 +7,6 @@ class New extends React.Component {
         return (
             <Default user={character.player}>
                 <article className="narrow-content">
-                    <h1>Edit {character.name}</h1>
                     <form action={`/users/${character.player}/characters/${character._id}?_method=PUT`} method="post">
                         <label className="field-label">Character name</label> <br />
                         <input type="text" name="name" defaultValue={character.name} required/><br />
@@ -19,6 +18,8 @@ class New extends React.Component {
                         <input type="number" name="level" defaultValue={character.level} required/><br />
                         <label className="field-label">Link to Character Image</label> <br />
                         <input type="text" name="image" defaultValue={character.image} /><br />
+                        <label className="field-label">Link to Character Sheet</label> <br />
+                        <input type="text" name="sheet" placeholder="link to character sheet (optional)" defaultValue={character.sheet}/><br />
                         <label className="field-label textarea-label">Additional character notes</label> <br />
                         <textarea name="notes"></textarea><br /><br />
                         <input className="btn btn-danger" type="submit" value="update character" />

@@ -25,6 +25,7 @@ class Index extends React.Component {
                             <img src={character.image} className="character-image" />
                         </div>
                         <div className='col-sm'>
+                            {character.sheet ? <a href={character.sheet}>View character sheet</a> : '' }
                             Total gold: {money} <br />
                             Magic Items:&nbsp;
                                 {

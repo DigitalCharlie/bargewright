@@ -100,6 +100,7 @@ input.nav-login-input, input.nav-login-input::placeholder {
     justify-content: center;
     align-content: center;
     height: 85vh;
+    padding-top:30px;
 }
 
 .narrow-content {
@@ -111,6 +112,7 @@ input.nav-login-input, input.nav-login-input::placeholder {
     padding: 20px 40px 30px;
     text-align:center;
     border-radius:20px;
+    overflow:auto;
 }
 
 .wide-content {
@@ -119,7 +121,8 @@ input.nav-login-input, input.nav-login-input::placeholder {
     border-radius: 10px;
     width:950px;
     margin:0 auto;
-    max-width:80vw
+    max-width:80vw;
+    overflow:auto;
 }
 
  /* LOGIN */
