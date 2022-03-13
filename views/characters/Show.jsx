@@ -3,17 +3,13 @@ const Default = require('../Default')
 
 class Index extends React.Component {
     render() {
-        const { character, sort } = this.props;
+        const { character } = this.props;
         const money = character.adventures.reduce((gold, {goldChange}) => gold + goldChange, 0)
         let levelsGained = 1
         for (let i=0;i < character.adventures.length; i++) {
             if (character.adventures[i].levelGain === true)levelsGained++
         }
         const charLink = `/users/${character.player}/characters/${character._id}`
-        const advSort = sort === 'name' ? 'name/desc' : 'name/asc'
-        const dateSort = sort === 'date' ? 'date/desc' : 'date/asc'
-        const goldSort = sort === 'goldChange' ? 'goldChange/desc' : 'goldChange/asc'
-        const magicSort = sort === 'magicItems' ? 'magicItems/desc' : 'magicItems/asc'
 
         return (
             <Default user={character.player}>
@@ -25,7 +21,7 @@ class Index extends React.Component {
                             <img src={character.image} className="character-image" />
                         </div>
                         <div className='col-sm'>
-                            {character.sheet ? <a href={character.sheet}>View character sheet</a> : '' }
+                            {character.sheet ? <a href={character.sheet}>View character sheet<br /></a> : '' } 
                             Total gold: {money} <br />
                             Magic Items:&nbsp;
                                 {
@@ -35,7 +31,7 @@ class Index extends React.Component {
                                 }<br />
                             Listed level: {character.level}<br />
                             Levels gained in play: {levelsGained}<br />
-                            <hr />
+                            {character.notes ? <hr /> : '' } 
                             {character.notes}
                         </div>
                     </div>
@@ -45,10 +41,10 @@ class Index extends React.Component {
                     <table className="table table-hover table-sm">
                                 <thead>
                                     <tr>
-                                        <th scope="col"><a href={`${charLink}/sort/${advSort}`}>Adventure</a></th>
-                                        <th scope="col"><a href={`${charLink}/sort/${dateSort}`}>Date</a></th>
-                                        <th scope="col"><a href={`${charLink}/sort/${goldSort}`}>Gold</a></th>
-                                        <th scope="col"><a href={`${charLink}/sort/${magicSort}`}>Magic Item</a></th>
+                                        <th scope="col">Adventure</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Gold</th>
+                                        <th scope="col">Magic Item</th>
                                         <th scope="col">Quicklinks</th>
                                     </tr>
                                 </thead>

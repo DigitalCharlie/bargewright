@@ -7,6 +7,7 @@ class New extends React.Component {
         return (
             <Default user={character.player}>
                 <article className="narrow-content">
+                    <h1>Edit {character.name}</h1>
                     <form action={`/users/${character.player}/characters/${character._id}?_method=PUT`} method="post">
                         <label className="field-label">Character name</label> <br />
                         <input type="text" name="name" defaultValue={character.name} required/><br />
