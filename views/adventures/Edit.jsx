@@ -7,7 +7,6 @@ class New extends React.Component {
         const adv = character.adventures[advNum]
         return (
             <Default user={user}>
-
                 <article className="narrow-content">
                     <h1>Edit {character.name}'s Adventure Log</h1>
                     <form action={`/users/${user}/characters/${character._id}/adventures/${advNum}?_method=PUT`} method="post">
@@ -16,7 +15,7 @@ class New extends React.Component {
                         <input type="number" name="goldChange" defaultValue={adv.goldChange} placeholder="gold"/><br />
                         <input type="number" name="downtime" defaultValue={adv.downtime} placeholder="downtime" /><br />
                         <input type="text" name="dungeonMaster" defaultValue={adv.dungeonMaster} placeholder="dungeon master"/><br />
-                        <input type="text" name="magicItems" defaultValue={adv.magicItems} placeholder="magic items"/><br />
+                        <input type="text" name="magicItems" defaultValue={adv.magicItems} placeholder="magic item(s)"/><br />
                         <label>
                         {character.adventures[advNum].levelGain ? <input type="checkbox" name="levelGain" defaultChecked /> : <input type="checkbox" name="levelGain" />} Did you gain a level?
                         </label><br />

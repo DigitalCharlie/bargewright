@@ -14,7 +14,7 @@ class New extends React.Component {
                         <input type="number" name="goldChange" placeholder="gold found" /><br />
                         <input type="number" name="downtime" placeholder="downtime earned (default 10)" /><br />
                         <input type="text" name="dungeonMaster" placeholder="dungeon master name"/><br />
-                        <input type="text" name="magicItems" placeholder="magic items (comma separated)" /><br />
+                        <input type="text" name="magicItems" placeholder="magic item(s) (comma separated)" /><br />
                         <label>
                             <input type="checkbox" name="levelGain" defaultChecked /> Did you gain a level?
                         </label><br />

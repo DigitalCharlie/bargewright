@@ -26,6 +26,10 @@ h1, h2, h3 {
     text-align: center;
 }
 
+a {
+    color:#fff;
+}
+
 a:hover {
     color: #dc3545
 }
@@ -49,10 +53,6 @@ a:hover {
 
 .error {
     color:#dc3545;
-}
-
-.text-center a {
-    color:#fff;
 }
 
 /* NAV ITEMS */
