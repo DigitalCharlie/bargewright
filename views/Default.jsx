@@ -31,7 +31,7 @@ class Default extends React.Component {
                         <div className="container">
                             <nav className="navbar navbar-expand-md justify-content-between navbar-dark">
                                 <a className="navbar-brand" href="/"><img src="/images/bargewright-logo.png" alt="The Bargewright Inn logo" className="site-logo"/></a>
-                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                     <span className="navbar-toggler-icon"></span>
                                 </button>
                                 <div className="collapse navbar-collapse justify-content-end" id="collapsingNav">
