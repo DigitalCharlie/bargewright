@@ -49,9 +49,9 @@ router.delete('/:character', (req, res) => {
 router.put('/:character', (req,res) => {
     const { user } = res.cookie;
     const { character } = req.params
+    console.log(req.body)
     Character.findByIdAndUpdate(character, req.body, {new:true})
         .then(() => {
-            console.log('updated')
             res.redirect(`/users/${user}/characters/${character}`)
         })
         .catch((err) => {

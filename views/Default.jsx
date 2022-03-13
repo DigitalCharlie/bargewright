@@ -47,8 +47,8 @@ class Default extends React.Component {
                         </div>
                     </div>
                     <footer>
-                        <div className="container w-50 text-center">
-                            <p>Disclaimer text that is funny.</p>
+                        <div className="container">
+                            <p>The Bargewright Inn bears no responsibility for any collisions that may occur as a result of charging headlong into battle after too many pints of Dragondew, Firedrake or Evermead. Do not blame The Bargewright Inn for any squabbles that occur as a result of a DM checking your logs. Despite the record keeping service offered by the Inn, however, the Inn hopes that any DM who does check logs of a player is tossed into the gaping maw of Dendar the night serpent. Unless, of course, that player is a rude and disruptive, in which case, a Chultan pox both on them and on the DM who thinks checking their logs is the best solution.</p>
                         </div>
                     </footer>
                 </body>

@@ -113,7 +113,7 @@ router.post('/', (req,res) => {
                 foundUser.save()
             })
         // Show created character if successful
-        res.send(`You have created ${createdCharacter}`)
+        res.redirect('/')
     })
     .catch ((err) => {
         res.status(400).json(err)

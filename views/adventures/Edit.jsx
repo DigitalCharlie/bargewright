@@ -7,37 +7,25 @@ class New extends React.Component {
         const adv = character.adventures[advNum]
         return (
             <Default user={user}>
-                <form action={`/users/${user}/characters/${character._id}/adventures/${advNum}?_method=PUT`} method="post">
-                    <fieldset>
-                    <legend>Log Another Adventure for {character.name}</legend>
-                    <label>
-                        NAME:<input type="text" name="name" defaultValue={adv.name} />
-                    </label>
-                    <label>
-                        DATE:<input type="date" name="date" defaultValue={adv.date} />
-                    </label>
-                    <label>
-                        DID YOU GAIN A LEVEL?:
-                        {character.adventures[advNum].levelGain ? <input type="checkbox" name="levelGain" defaultChecked /> : <input type="checkbox" name="levelGain" />}
-                    </label>
-                    <label>
-                        GOLD:<input type="number" name="goldChange" defaultValue={adv.goldChange} />
-                    </label>
-                    <label>
-                        DOWNTIME:<input type="number" name="downtime" defaultValue={adv.downtime} />
-                    </label>
-                    <label>
-                        DUNGEON MASTER:<input type="text" name="dungeonMaster" defaultValue={adv.dungeonMaster}/>
-                    </label>
-                    <label>
-                        MAGIC ITEM:<input type="text" name="magicItems" defaultValue={adv.magicItems} />
-                    </label>
-                    <label>
-                        NOTES:<input type="text" name="notes" defaultValue={adv.notes}/>
-                    </label>
-                    </fieldset>
-                    <input type="submit" value="update adventure log" />
-                </form>
+
+                <article className="narrow-content">
+                    <h1>Log another adventure for {character.name}</h1>
+                    <form action={`/users/${user}/characters/${character._id}/adventures/${advNum}?_method=PUT`} method="post">
+                        <input type="text" name="name" defaultValue={adv.name} /><br />
+                        <input type="date" name="date" defaultValue={adv.date} /><br />
+                        <input type="number" name="goldChange" defaultValue={adv.goldChange} placeholder="gold"/><br />
+                        <input type="number" name="downtime" defaultValue={adv.downtime} placeholder="downtime" /><br />
+                        <input type="text" name="dungeonMaster" defaultValue={adv.dungeonMaster} placeholder="dungeon master"/><br />
+                        <input type="text" name="magicItems" defaultValue={adv.magicItems} placeholder="magic items"/><br />
+                        <label>
+                        {character.adventures[advNum].levelGain ? <input type="checkbox" name="levelGain" defaultChecked /> : <input type="checkbox" name="levelGain" />} Did you gain a level?
+                        </label><br />
+                        <label className="field-label textarea-label">Adventure notes</label> <br />
+                        <textarea name="welcome"></textarea><br />
+                        <input className="btn btn-danger" type="submit" value="log adventure" />
+                    </form>
+                    <p className='tiny-text'><a href={`/users/${character.player}/characters/${character._id}`}>Back to {character.name}</a></p>
+                </article>
             </Default>
         )
     }

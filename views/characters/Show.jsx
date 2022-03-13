@@ -20,17 +20,26 @@ class Index extends React.Component {
             <Default user={character.player}>
                 <article className="wide-content">
                     <h1>{character.name} the {character.race} {character.class}</h1>
-                    <img src={character.image} className="character-image" />
                     <hr />
-                    Total gold: {money} <br />
-                    Magic Items:&nbsp;
-                        {
-                            character.adventures.map((adventure) => (
-                                adventure.magicItems ? adventure.magicItems + ', ' : ''
-                            ))
-                        }<br />
-                    Listed level: {character.level}<br />
-                    Levels gained in play: {levelsGained}<br />
+                    <div className="row">
+                        <div className='col-sm justify-content-end d-flex'>
+                            <img src={character.image} className="character-image" />
+                        </div>
+                        <div className='col-sm'>
+                            Total gold: {money} <br />
+                            Magic Items:&nbsp;
+                                {
+                                    character.adventures.map((adventure) => (
+                                        adventure.magicItems ? adventure.magicItems + ', ' : ''
+                                    ))
+                                }<br />
+                            Listed level: {character.level}<br />
+                            Levels gained in play: {levelsGained}<br />
+                            <hr />
+                            {character.notes}
+                        </div>
+                    </div>
+
                     <hr />
                     <h3>Adventures</h3>
                     <table className="table table-hover table-sm">
