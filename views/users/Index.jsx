@@ -31,7 +31,7 @@ class Index extends React.Component {
                         <tbody>
                             {
                                 characters.map((character) => (
-                                    <tr>
+                                    <tr key={`${character._id}`}>
                                         <td>
                                             <a href={`${userLink}/characters/${character._id}`}>{character.name}</a>
                                         </td>

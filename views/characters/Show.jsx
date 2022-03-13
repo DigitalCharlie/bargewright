@@ -51,7 +51,7 @@ class Index extends React.Component {
                                 <tbody>
                                     {   
                                         character.adventures.map((adventure, index) => (
-                                            <tr>
+                                            <tr key={`${index}`}>
                                                 <td>
                                                     <a href={`${charLink}/adventures/${index}`}>
                                                         {adventure.name}
