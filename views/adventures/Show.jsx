@@ -24,9 +24,6 @@ class Index extends React.Component {
                     </p>
                     <hr />
                     <p><a href={`/users/${character.player}/characters/${character._id}/adventures/${advNum}/edit`} id="myButton">Edit adventure</a></p>
-                    <form action={`/users/${character.player}/characters/${character._id}/adventures/${advNum}?_method=PUT`} method="POST">
-                        <input className="btn btn-danger" type="submit" value={`Delete this adventure log`}/>
-                    </form>
                     <p className='tiny-text'><a href={`/users/${character.player}/characters/${character._id}`}>Back to {character.name}</a></p>
                 </article>
             </Default>

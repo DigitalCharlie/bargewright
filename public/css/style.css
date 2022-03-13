@@ -114,7 +114,7 @@ input.nav-login-input, input.nav-login-input::placeholder {
 }
 
 .wide-content {
-    background: rgba(0,0,0,.7);
+    background: rgba(0,0,0,.8);
     padding: 20px 40px 30px;
     border-radius: 10px;
     width:950px;

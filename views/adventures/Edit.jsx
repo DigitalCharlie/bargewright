@@ -21,7 +21,12 @@ class New extends React.Component {
                         </label><br />
                         <label className="field-label textarea-label">Adventure notes</label> <br />
                         <textarea name="welcome"></textarea><br />
-                        <input className="btn btn-danger" type="submit" value="log adventure" />
+                        <input className="btn btn-danger" type="submit" value="update adventure" />
+                    </form>
+                    <hr />
+                    <h3>DANGER ZONE</h3>
+                    <form action={`/users/${character.player}/characters/${character._id}/adventures/${advNum}?_method=PUT`} method="POST">
+                        <input className="btn btn-danger" type="submit" value={`Delete this adventure log`}/>
                     </form>
                     <p className='tiny-text'><a href={`/users/${character.player}/characters/${character._id}`}>Back to {character.name}</a></p>
                 </article>
