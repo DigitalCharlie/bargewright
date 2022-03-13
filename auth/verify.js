@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 const verify = (req, res, next) => {
     const token = req.cookies['auth-token']
     if(!token) {
-        return res.status(401).send(`Nope, you can't come in.`)
+        res.render(`users/Login`, {error:`Please log in`})
     }
 
     try {
@@ -13,7 +13,7 @@ const verify = (req, res, next) => {
         next()
 
     } catch (err) {
-        res.status(400).send( token + 'is an invalid token')
+        res.render(`users/Login`, {error: 'Your token is invalid. Please log in again.'})
     }
 }
 

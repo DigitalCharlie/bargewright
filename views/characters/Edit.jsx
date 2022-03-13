@@ -8,7 +8,7 @@ class New extends React.Component {
             <Default user={character.player}>
                 <article className="narrow-content">
                     <h1>Edit {character.name}</h1>
-                    <form action={`/users/${character.player}`} method="post">
+                    <form action={`/users/${character.player}/characters/${character._id}?_method=PUT`} method="post">
                         <label className="field-label">Character name</label> <br />
                         <input type="text" name="name" defaultValue={character.name}/><br />
                         <label className="field-label">Race</label> <br />
@@ -18,6 +18,11 @@ class New extends React.Component {
                         <label className="field-label">Level</label> <br />
                         <input type="number" name="level" defaultValue={character.level}/><br /><br />
                         <input className="btn btn-danger" type="submit" value="update character" />
+                    </form>
+                    <hr />
+                    <h3>DANGER ZONE</h3>
+                    <form action={`/users/${character.player}/characters/${character._id}?_method=DELETE`} method="POST">
+                        <input className="btn btn-danger" type="submit" value={`Delete ${character.name}`}/>
                     </form>
                     <p className="tiny-text"><a href={`/users/${character.player}/characters/${character._id}`}>Back</a></p>
                 </article>

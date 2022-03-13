@@ -4,33 +4,83 @@ const Default = require('../Default')
 class Index extends React.Component {
     render() {
         const { character } = this.props;
-        console.log(character)
         const money = character.adventures.reduce((gold, {goldChange}) => gold + goldChange, 0)
-        console.log(money)
+        let levelsGained = 1
+        for (let i=0;i < character.adventures.length; i++) {
+            if (character.adventures[i].levelGain === true)levelsGained++
+        }
+        console.log(levelsGained)
+        const advLink = `/users/${character.player}/characters/${character._id}/adventures`
+        const advSort = ''
+        const dateSort = ''
+        const goldSort = ''
+        const magicSort = ''
 
         return (
             <Default user={character.player}>
-                <h1>{character.name} the {character.race} {character.class}</h1>
-                <p><a href={`/users/${character.player}/characters/${character._id}/adventures/new`}>Log new adventure</a></p>
-                <hr />
-                <h3>Adventures</h3>
-                {
-                    character.adventures.map((adventure, index) => (
-                        <article>
-                                <p>
-                                    <a href={`/users/${character.player}/characters/${character._id}/adventures/${index}`}>
-                                        {adventure.name}
-                                    </a>
-                                </p>
-                        </article>
-                    ))
-                }
-                <hr />
-                <p><a href={`/users/${character.player}/characters/${character._id}/edit`}>Edit {character.name}</a></p>
-                <form action={`/users/${character.player}/characters/${character._id}?_method=DELETE`} method="POST">
-                    <input className="btn btn-danger" type="submit" value={`Delete ${character.name}`}/>
-                </form>
-                <p><a href={`/users/${character.player}`}>Back to your characters</a></p>
+                <article className="wide-content">
+                    <h1>{character.name} the {character.race} {character.class}</h1>
+                    <hr />
+                    Total gold: {money} <br />
+                    Magic Items:&nbsp;
+                        {
+                            character.adventures.map((adventure) => (
+                                adventure.magicItems ? adventure.magicItems + ', ' : ''
+                            ))
+                        }<br />
+                    Current level: {levelsGained}<br />
+                    <hr />
+                    <h3>Adventures</h3>
+                    <table className="table table-hover table-sm">
+                                <thead>
+                                    <tr>
+                                        <th scope="col"><a href={`/users/${character.player}/sort/${advSort}`}>Adventure</a></th>
+                                        <th scope="col"><a href={`/users/${character.player}/sort/${dateSort}`}>Date</a></th>
+                                        <th scope="col"><a href={`/users/${character.player}/sort/${goldSort}`}>Gold</a></th>
+                                        <th scope="col"><a href={`/users/${character.player}/sort/${magicSort}`}>Magic Item</a></th>
+                                        <th scope="col">Quicklinks</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {
+                                        character.adventures.map((adventure, index) => (
+                                            <tr>
+                                                <td>
+                                                    <a href={`${advLink}/${index}`}>
+                                                        {adventure.name}
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a href={`${advLink}/${index}`}>
+                                                        {adventure.date}
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a href={`${advLink}/${index}`}>
+                                                        {adventure.goldChange}
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a href={`${advLink}/${index}`}>
+                                                        {adventure.magicItems}
+                                                    </a>
+                                                </td>
+                                                <td className="quick-links">
+                                                    <a href={`${advLink}/${index}/edit`}>📝</a>
+                                                </td>
+                                            </tr>
+                                        ))
+                                    }
+                                </tbody>
+
+                            </table>
+                    <p className="text-center"><a href={`/users/${character.player}/characters/${character._id}/adventures/new`}>Log new adventure</a></p>
+                    <hr />
+                    <p className='tiny-text'>
+                        <a href={`/users/${character.player}/characters/${character._id}/edit`}>Edit {character.name}</a> <br />
+                        <a href={`/users/${character.player}`}>Back to your characters</a>
+                    </p>
+                </article>
             </Default>
         )
     }
