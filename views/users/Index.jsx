@@ -6,7 +6,6 @@ const User = require('../../models/users')
 class Index extends React.Component {
     render() {
         const { characters, user, userObj, sort } = this.props;
-        console.log(sort)
         const nameSort = sort === 'name' ? 'name/desc' : 'name/asc'
         const raceSort = sort === 'race' ? 'race/desc' : 'race/asc'
         const classSort = sort === 'class' ? 'class/desc' : 'class/asc'

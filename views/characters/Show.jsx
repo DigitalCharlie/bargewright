@@ -3,18 +3,17 @@ const Default = require('../Default')
 
 class Index extends React.Component {
     render() {
-        const { character } = this.props;
+        const { character, sort } = this.props;
         const money = character.adventures.reduce((gold, {goldChange}) => gold + goldChange, 0)
         let levelsGained = 1
         for (let i=0;i < character.adventures.length; i++) {
             if (character.adventures[i].levelGain === true)levelsGained++
         }
-        console.log(levelsGained)
-        const advLink = `/users/${character.player}/characters/${character._id}/adventures`
-        const advSort = ''
-        const dateSort = ''
-        const goldSort = ''
-        const magicSort = ''
+        const charLink = `/users/${character.player}/characters/${character._id}`
+        const advSort = sort === 'name' ? 'name/desc' : 'name/asc'
+        const dateSort = sort === 'date' ? 'date/desc' : 'date/asc'
+        const goldSort = sort === 'goldChange' ? 'goldChange/desc' : 'goldChange/asc'
+        const magicSort = sort === 'magicItems' ? 'magicItems/desc' : 'magicItems/asc'
 
         return (
             <Default user={character.player}>
@@ -45,39 +44,39 @@ class Index extends React.Component {
                     <table className="table table-hover table-sm">
                                 <thead>
                                     <tr>
-                                        <th scope="col"><a href={`/users/${character.player}/sort/${advSort}`}>Adventure</a></th>
-                                        <th scope="col"><a href={`/users/${character.player}/sort/${dateSort}`}>Date</a></th>
-                                        <th scope="col"><a href={`/users/${character.player}/sort/${goldSort}`}>Gold</a></th>
-                                        <th scope="col"><a href={`/users/${character.player}/sort/${magicSort}`}>Magic Item</a></th>
+                                        <th scope="col"><a href={`${charLink}/sort/${advSort}`}>Adventure</a></th>
+                                        <th scope="col"><a href={`${charLink}/sort/${dateSort}`}>Date</a></th>
+                                        <th scope="col"><a href={`${charLink}/sort/${goldSort}`}>Gold</a></th>
+                                        <th scope="col"><a href={`${charLink}/sort/${magicSort}`}>Magic Item</a></th>
                                         <th scope="col">Quicklinks</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {
+                                    {   
                                         character.adventures.map((adventure, index) => (
                                             <tr>
                                                 <td>
-                                                    <a href={`${advLink}/${index}`}>
+                                                    <a href={`${charLink}/adventures/${index}`}>
                                                         {adventure.name}
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <a href={`${advLink}/${index}`}>
+                                                    <a href={`${charLink}/adventures/${index}`}>
                                                         {adventure.date}
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <a href={`${advLink}/${index}`}>
+                                                    <a href={`${charLink}/adventures/${index}`}>
                                                         {adventure.goldChange}
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <a href={`${advLink}/${index}`}>
+                                                    <a href={`${charLink}/adventures/${index}`}>
                                                         {adventure.magicItems}
                                                     </a>
                                                 </td>
                                                 <td className="quick-links">
-                                                    <a href={`${advLink}/${index}/edit`}>📝</a>
+                                                    <a href={`${charLink}/adventures/${index}/edit`}>📝</a>
                                                 </td>
                                             </tr>
                                         ))
@@ -85,10 +84,10 @@ class Index extends React.Component {
                                 </tbody>
 
                             </table>
-                    <p className="text-center"><a href={`/users/${character.player}/characters/${character._id}/adventures/new`}>Log new adventure</a></p>
+                    <p className="text-center"><a href={`${charLink}/adventures/new`}>Log new adventure</a></p>
                     <hr />
                     <p className='tiny-text'>
-                        <a href={`/users/${character.player}/characters/${character._id}/edit`}>Edit {character.name}</a> <br />
+                        <a href={`${charLink}/edit`}>Edit {character.name}</a> <br />
                         <a href={`/users/${character.player}`}>Back to your characters</a>
                     </p>
                 </article>

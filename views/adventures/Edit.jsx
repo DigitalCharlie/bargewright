@@ -9,7 +9,7 @@ class New extends React.Component {
             <Default user={user}>
 
                 <article className="narrow-content">
-                    <h1>Log another adventure for {character.name}</h1>
+                    <h1>Edit {character.name}'s Adventure Log</h1>
                     <form action={`/users/${user}/characters/${character._id}/adventures/${advNum}?_method=PUT`} method="post">
                         <input type="text" name="name" defaultValue={adv.name} /><br />
                         <input type="date" name="date" defaultValue={adv.date} /><br />

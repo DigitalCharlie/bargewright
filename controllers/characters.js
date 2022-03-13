@@ -147,6 +147,22 @@ router.get('/:character', (req,res) => {
         })
 })
 
+// SORTED SHOW
+// This won't work because the adventures aren't the objects being returned — they're in an array — so I'm passing the info, but I can't make it do anything with it.
+// router.get('/:character/sort/:field/:direction', (req,res) => {
+//     let { field } = req.params
+//     field = req.params.direction === 'asc' ? field : "-"+field 
+//     Character.findById(req.params.character)
+//         .sort(field)
+//         .then(( foundChar ) => {
+//             res.render('characters/Show', {character: foundChar,  sort:field})
+//             // res.send(`This is a test of ${foundChar.name}'s page`)
+//         })
+//         .catch (() => {
+//             res.redirect('/')
+//         })
+// })
+
 // show adventure page
 
 router.get('/:character/adventures/:advNum', (req,res) => {
