@@ -38,9 +38,9 @@ app.use('/', login); // tells user route to use user controller
 app.use('/users/:username', verify, authorize, users); // tells user route to use user controller
 app.use('/users/:username/characters/', verify, authorize, characters); // tells user route to use user controller
 
-app.get('*', function(req, res){
-    res.status(404).render(`home/404`);
-  });
+// app.get('*', function(req, res){
+//     res.status(404).render(`home/404`);
+//   });
 
 //////////////////////////////////////////////
 // Server Listener

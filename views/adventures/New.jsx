@@ -19,7 +19,7 @@ class New extends React.Component {
                         DID YOU GAIN A LEVEL?:<input type="checkbox" name="levelGain" defaultChecked />
                     </label>
                     <label>
-                        GOLD:<input type="number" name="goldChange" defaultValue="1" />
+                        GOLD:<input type="number" name="goldChange" defaultValue='1' />
                     </label>
                     <label>
                         DOWNTIME:<input type="number" name="downtime" defaultValue="10" />

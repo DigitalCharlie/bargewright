@@ -19,7 +19,7 @@ class New extends React.Component {
                         CLASS:<input type="text" name="class" placeholder="enter character class" />
                     </label>
                     <label>
-                        LEVEL:<input type="text" name="level" placeholder="character level" defaultValue="1" />
+                        LEVEL:<input type="number" name="level" placeholder="character level" defaultValue="1" />
                     </label>
                     </fieldset>
                     <input type="submit" value="create new character" />

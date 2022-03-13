@@ -51,8 +51,8 @@ class Index extends React.Component {
                                 ))
                             }
                         </tbody>
-
                     </table>
+                    <p className="text-center"><a href={`/users/${user}/new`}>Add new</a></p>
                     <p className='tiny-text'><a href={`/users/${user}/edit`}>Edit Account</a></p>
                 </article>
             </Default>

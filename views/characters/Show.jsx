@@ -4,6 +4,10 @@ const Default = require('../Default')
 class Index extends React.Component {
     render() {
         const { character } = this.props;
+        console.log(character)
+        const money = character.adventures.reduce((gold, {goldChange}) => gold + goldChange, 0)
+        console.log(money)
+
         return (
             <Default user={character.player}>
                 <h1>{character.name} the {character.race} {character.class}</h1>

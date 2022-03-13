@@ -17,7 +17,8 @@ class New extends React.Component {
                         DATE:<input type="date" name="date" defaultValue={adv.date} />
                     </label>
                     <label>
-                        DID YOU GAIN A LEVEL?:<input type="checkbox" name="levelGain" defaultChecked />
+                        DID YOU GAIN A LEVEL?:
+                        {character.adventures[advNum].levelGain ? <input type="checkbox" name="levelGain" defaultChecked /> : <input type="checkbox" name="levelGain" />}
                     </label>
                     <label>
                         GOLD:<input type="number" name="goldChange" defaultValue={adv.goldChange} />

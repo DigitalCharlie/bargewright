@@ -51,6 +51,10 @@ a:hover {
     color:#dc3545;
 }
 
+.text-center a {
+    color:#fff;
+}
+
 /* NAV ITEMS */
 .site-logo {
     max-width:100%;
@@ -173,6 +177,10 @@ td a, thead a, thead {
 .quick-links {
     width:90px;
     text-align:center;
+}
+
+.new-char {
+    border-bottom:none;
 }
 
 

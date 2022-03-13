@@ -65,6 +65,9 @@ router.put('/:character/adventures', (req,res) => {
     const { character } = req.params
     // establish new adventure
     newAdventure = req.body
+    newAdventure.goldChange = parseInt(newAdventure.goldChange)
+    newAdventure.downtime = parseInt(newAdventure.downtime)
+    newAdventure.levelGain = newAdventure.levelGain === 'on' ? true : false
     Character.findById(req.params.character)
         .then((foundChar) => {
             // Add new adventure to the found character's adventure array
@@ -92,7 +95,11 @@ router.put('/:character/adventures/:advNum', (req,res) => {
                 foundChar.adventures.splice(advNum, 1)
             } else {
                 // otherwise update the adventure
-                foundChar.adventures.splice(advNum, 1, req.body)
+                const editedAdventure = req.body
+                editedAdventure.goldChange = parseInt(editedAdventure.goldChange)
+                editedAdventure.downtime = parseInt(editedAdventure.downtime)
+                editedAdventure.levelGain = editedAdventure.levelGain === 'on' ? true : false
+                foundChar.adventures.splice(advNum, 1, editedAdventure)
             }
             // Remove the adventure
             // Save the update
@@ -117,9 +124,10 @@ router.get('/:character/edit', (req,res) => {
 // edit adventure
 
 router.get('/:character/adventures/:advNum/edit', (req,res) => {
-    Character.findById(req.params.character)
+    const { character, advNum } = req.params
+    Character.findById(character)
     .then((foundChar) => {
-        res.render('adventures/Edit', {character: foundChar,user:res.cookie.user, advNum: req.params.advNum})
+        res.render('adventures/Edit', {character: foundChar,user:res.cookie.user, advNum: advNum})
     })
     .catch (() => {
         res.redirect('/')
