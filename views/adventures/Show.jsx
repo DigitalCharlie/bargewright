@@ -5,7 +5,7 @@ class Index extends React.Component {
     render() {
         const { character, advNum } = this.props;
         return (
-            <Default>
+            <Default user={character.player}>
                 <h1>Adventurer's Log</h1>
                 <p>
                     Adventure title: {character.adventures[advNum].name}

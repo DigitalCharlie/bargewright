@@ -5,7 +5,7 @@ class New extends React.Component {
     render() {
         const { user } = this.props
         return (
-            <Default>
+            <Default user={user}>
                 <form action={`/users/${user.username}?_method=PUT`} method="post">
                     <fieldset>
                     <legend>Edit profile</legend>

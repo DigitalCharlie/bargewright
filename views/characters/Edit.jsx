@@ -5,7 +5,7 @@ class New extends React.Component {
     render() {
         const { character } = this.props
         return (
-            <Default>
+            <Default user={character.player}>
                 <form action={`/users/${character.player}/characters/${character._id}?_method=PUT`} method="POST">
                     <fieldset>
                     <legend>Edit Character</legend>
