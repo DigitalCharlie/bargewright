@@ -16,7 +16,9 @@ class New extends React.Component {
                         <label className="field-label">Class</label> <br />
                         <input type="text" name="class" defaultValue={character.class} /><br />
                         <label className="field-label">Level</label> <br />
-                        <input type="number" name="level" defaultValue={character.level}/><br /><br />
+                        <input type="number" name="level" defaultValue={character.level}/><br />
+                        <label className="field-label">Link to Character Image</label> <br />
+                        <input type="text" name="class" defaultValue={character.image} /><br /><br />
                         <input className="btn btn-danger" type="submit" value="update character" />
                     </form>
                     <hr />

@@ -26,7 +26,8 @@ const charSchema = new Schema({
     },
     level: Number,
     player: String,
-    adventures: Array
+    image:String,
+    adventures: Array,
 });
 
 // make user model

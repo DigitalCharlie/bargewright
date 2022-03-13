@@ -20,6 +20,7 @@ class Index extends React.Component {
             <Default user={character.player}>
                 <article className="wide-content">
                     <h1>{character.name} the {character.race} {character.class}</h1>
+                    <img src={character.image} className="character-image" />
                     <hr />
                     Total gold: {money} <br />
                     Magic Items:&nbsp;
@@ -28,7 +29,8 @@ class Index extends React.Component {
                                 adventure.magicItems ? adventure.magicItems + ', ' : ''
                             ))
                         }<br />
-                    Current level: {levelsGained}<br />
+                    Listed level: {character.level}<br />
+                    Levels gained in play: {levelsGained}<br />
                     <hr />
                     <h3>Adventures</h3>
                     <table className="table table-hover table-sm">

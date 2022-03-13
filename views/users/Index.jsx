@@ -42,7 +42,7 @@ class Index extends React.Component {
                                             <a href={`/users/${user}/characters/${character._id}`}>{character.class}</a>
                                         </td>
                                         <td>
-                                            <a href={`/users/${user}/characters/${character._id}`}>{character.level}</a>
+                                            <a href={`/users/${user}/characters/${character._id}`}>{ character.level }</a>
                                         </td>
                                         <td className="quick-links">
                                             <a href={`/users/${user}/characters/${character._id}/edit`}>📝</a>&nbsp;&nbsp;<a href={`/users/${user}/characters/${character._id}/adventures/new`}>🆕</a>
