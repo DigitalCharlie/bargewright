@@ -5,7 +5,7 @@ const auth = (req, res, next) => {
     if (res.cookie.user === req.params.username) {
         next()
     } else {
-        res.render(`users/Login`, {error: `You aren't authorized to visit this page`})
+        res.render(`/`, {error: `You aren't authorized to visit this page`})
     }
 }
 
