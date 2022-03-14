@@ -4,7 +4,6 @@ const Default = require('../Default')
 
 class Index extends React.Component {
     render() {
-        // const { characters, user } = this.props;
         return (
             <Default>
                 <article className="narrow-content">
