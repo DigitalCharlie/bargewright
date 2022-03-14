@@ -106,7 +106,7 @@ input.nav-login-input, input.nav-login-input::placeholder {
 .narrow-content {
     width: 600px;
     min-height:300px;
-    max-width: 85vw;
+    max-width: 100%;
     margin: 0 auto;
     background-color: rgba(0,0,0,.8);
     padding: 20px 40px 30px;
@@ -121,7 +121,7 @@ input.nav-login-input, input.nav-login-input::placeholder {
     border-radius: 10px;
     width:950px;
     margin:0 auto;
-    max-width:80vw;
+    max-width:100%;
     overflow:auto;
 }
 
