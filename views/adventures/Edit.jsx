@@ -20,7 +20,7 @@ class New extends React.Component {
                         {character.adventures[advNum].levelGain ? <input type="checkbox" name="levelGain" defaultChecked /> : <input type="checkbox" name="levelGain" />} Did you gain a level?
                         </label><br />
                         <label className="field-label textarea-label">Adventure notes</label> <br />
-                        <textarea name="welcome"></textarea><br />
+                        <textarea name="notes"></textarea><br />
                         <input className="btn btn-danger" type="submit" value="update adventure" />
                     </form>
                     <hr />

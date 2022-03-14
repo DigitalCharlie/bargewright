@@ -19,7 +19,7 @@ class New extends React.Component {
                             <input type="checkbox" name="levelGain" defaultChecked /> Did you gain a level?
                         </label><br />
                         <label className="field-label textarea-label">Adventure notes</label> <br />
-                        <textarea name="welcome"></textarea><br />
+                        <textarea name="notes"></textarea><br />
                         <input className="btn btn-danger" type="submit" value="log adventure" />
                     </form>
                     <p className='tiny-text'><a href={`/users/${character.player}/characters/${character._id}`}>Back to {character.name}</a></p>
