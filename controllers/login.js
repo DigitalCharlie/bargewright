@@ -82,11 +82,11 @@ router.post('/login', async (req,res) => {
 
     // is it a valid user?
     const user = await User.findOne({username:req.body.username})
-    if (!user) return res.render(`users/Login`, {error:'Username or password are not valid'})
+    if (!user) return res.render(`users/Login`, {error:'Username or password is not valid'})
 
     // is the password correct?
     const validPassword = await bcrypt.compareSync(req.body.password, user.password)
-    if (!validPassword) res.render(`users/Login`, {error:'Username or password are not valid'})
+    if (!validPassword) res.render(`users/Login`, {error:'Username or password is not valid'})
 
     // create jwt
     // this is what I have questions about rn — res.cookie vs res.locals
