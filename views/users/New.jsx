@@ -12,7 +12,7 @@ class New extends React.Component {
                     <form action="/" method="post">
                             <input type="text" name="username" placeholder="username" /><br />
                             <input type="text" name="email" placeholder="email" /><br />
-                            <input type="text" name="password" placeholder="password" /><br />
+                            <input type="password" name="password" placeholder="password" /><br />
                             <input type="submit" className="btn btn-danger" value="Register" />
                     </form>
                     <p className="tiny-text"><a href="/login">Login</a></p>
