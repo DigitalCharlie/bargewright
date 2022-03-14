@@ -9,11 +9,11 @@ class Default extends React.Component {
             navLink = <ul className="navbar-nav mr-auto"><li className="nav-item"><a className="nav-link"  href={`/users/${user}`}>My Account</a></li><li className="nav-item"><a className="nav-link" href="/logout">Logout</a></li></ul>
         } else {
             navLink =
-            <ul class="navbar-nav mr-auto">
+            <ul className="navbar-nav mr-auto">
                     <form action="/login" method="post" className="form-inline my-2 my-lg-0">
                             <input type="text" name="username" placeholder="username" className='nav-login-input' />
                             <input type="password" name="password" placeholder="password" className='nav-login-input' />
-                            <input class="btn btn-sm btn-primary" type="submit" value="Log in" />
+                            <input className="btn btn-sm btn-primary" type="submit" value="Log in" />
                     </form>
                     <li className="nav-item"><a className="nav-link" href="/new/">Register</a></li>
                 </ul>
