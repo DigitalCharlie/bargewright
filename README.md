@@ -9,13 +9,13 @@ After creating an account, users can add characters to track as well as adventur
 ## Screenshots
 
 Users can login on the homepage.
-![](images/Bargewright-login.png)
+![](public/images/Bargewright-login.png)
 
 A user's homepage shows a sortable list of their characters — clicking any of the characters takes them to that character's own page. The quicklinks also let users go directly to either edit the character or log a new adventure.
-![](images/Bargewright-user-ex.png)
+![](public/images/Bargewright-user-ex.png)
 
 A character's homepage works similarly to a user's homepage.
-![](images/Bargewright-char-ex.png)
+![](public/images/Bargewright-char-ex.png)
 
 Options to go back are generally at the bottom of the page the user is on — but clicking the logo in the upper left or "my account" will take the user back to their homepage.
 
@@ -34,7 +34,7 @@ The Bargewright Inn was created using express and mongoose, with MongoDB as a da
 
 While this was created for a project using MongoDB, the data structure probably works better on a relational database. Additionally, since at the start I was unfamiliar with creating relationships between objects I made some choices I would not make again about how to structure the data — especially as I add more models and functionality.
 
-Spending the time to understand how to make a useful ERD and make decisions based on it will help overcome this challenge in future iterations — as opposed to [this really rough ERD]() I made for this project.
+Spending the time to understand how to make a useful ERD and make decisions based on it will help overcome this challenge in future iterations — as opposed to [this really rough ERD](https://github.com/DigitalCharlie/bargewright/blob/main/public/images/Bargewright-erd.png) I made for this project.
 
 ## Future improvements
 
