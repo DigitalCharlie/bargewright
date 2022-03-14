@@ -180,6 +180,7 @@ footer {
 .welcome-msg {
     text-align:center;
     font-style:italic;
+    font-size:.9em;
 }
 
 /* TABLE STYLES */
