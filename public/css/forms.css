@@ -1,0 +1,35 @@
+
+/* LOGIN */
+
+.narrow-content form input, .narrow-content form textarea {
+    width:350px;
+    text-align:center;
+    margin:2px;
+}
+
+textarea {
+    height:100px;
+}
+
+.narrow-content form input[type="checkbox"] {
+    width:20px;
+}
+
+.field-label {
+    margin-top:10px;
+}
+
+.narrow-content .edit-input {
+    width:80%;
+}
+
+/* BUTTONS */
+
+.btn {
+   border-radius:0px;
+}
+
+.narrow-content .btn {
+   margin-left: 3px;
+   margin-right: 3px;
+}
