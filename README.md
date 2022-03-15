@@ -49,6 +49,7 @@ This is version 1.0 of The Bargewright Inn, built as a minimum viable product to
 7. Explore using a relational database instead of MongoDB — and if not, refactoring the structure to change how adventures are stored.
 8. Move to either using express sessions or change how JWTs are used. 
 9. Redesign the form entry pages so they're a better experience — single vertical column is a bit clunky.
+10. Prompts for adding first character, adding a character portrait, etc.
 
 Progress is tracked on [This Trello board](https://trello.com/b/EnUd1pRM/the-bargewright-inn).
 
