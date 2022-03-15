@@ -34,7 +34,7 @@ The Bargewright Inn was created using express and mongoose, with MongoDB as a da
 
 While this was created for a project using MongoDB, the data structure probably works better on a relational database. Additionally, since at the start I was unfamiliar with creating relationships between objects I made some choices I would not make again about how to structure the data — especially as I add more models and functionality.
 
-Spending the time to understand how to make a useful ERD and make decisions based on it will help overcome this challenge in future iterations — as opposed to [this really rough ERD](https://github.com/DigitalCharlie/bargewright/blob/main/public/images/Bargewright-erd.png) I made for this project.
+Spending the time to understand how to make a useful ERD and make decisions based on it will help overcome this challenge in future iterations — as opposed to [this really rough ERD](https://github.com/DigitalCharlie/bargewright/blob/main/public/images/Bargewright-erd.png) I made for this project. [This also very rough ERD](https://drive.google.com/file/d/1cA5nYG1rf8KhC6hx6PWiSZUAjHw8-YRM/view?usp=sharing) is a more accurate map of where I wound up.
 
 ## Future improvements
 
